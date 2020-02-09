@@ -3,8 +3,10 @@
 
 ## Introducción 
 Acorde con los paquetes de trabajo anterior:
-1 Contador de Pixel y Href WP02.
-2 Simulador de Captura de datos WP03.
+
+1. Contador de Pixel y Href WP02.
+2. Simulador de Captura de datos WP03.
+
 Se debe realizar la implemtentación y documentación final, para ello deben tener en cuenta lo siguiente:
 ![DIAGRAMA](./docs/figs/test_cam.png)
 
