@@ -18,7 +18,7 @@ Como se observa en la figura anterior, el bloque en rojo y las señales en amari
 
 El bloque en azul es el PLL que realiza el divisor de frecuencias requeridas 25Mhz y 24Mhz, en el ejemplo este módulo se implementa con una entrada de reloj de 32Mhz y para la FPGA spartan6. Por tal motivo, es necesario que cada grupo adapte este bloque a la tarjeta que está usando. En el desarrollo del paquete de trabajo se da las indicaciones para hacer este proceso. 
 
-Para este paquete de trabajo, los estudiantes deben estar inscrito en un grupo y copiar la información del siguiente link [WP04](https://classroom.github.com/g/) .
+Para este paquete de trabajo, los estudiantes deben estar inscrito en un grupo y copiar la información del siguiente link [WP04](https://classroom.github.com/g/-N1YMEhS) .
 Debe escribir la documentación en el archivo README.md de la carpeta docs. Recuerde, esta documentación debe ser tal que, cualquier compañero de futuros semestres comprenda sus anotaciones y la relación con los módulos diseñados. se deben incluir diagramas de conexión de la FPGA, la descripción funcional y estructural, describir las FSM utilizadas. Recuerde incluir las conexiones del puerto I2C y la cámara. Debe incluir imagenes y/o videos del las pruebas e implementación.
 En la carpeta HDL debe alojar el proyecto realizado en Verilog y en la carpeta SW, la implementación del código de Arduino utilizado  
 
@@ -31,7 +31,7 @@ Para este paquete de trabajo se debe contar con:
 * Pantalla con entrada VGA y cuya resolución sea 640x480.
 * FPGA que cuenta con puerto VGA.
 * Cable VGA.
-* Plantilla del proyecto sugerido [WP04](https://classroom.github.com/g/) .
+* Plantilla del proyecto sugerido [WP04](https://classroom.github.com/g/-N1YMEhS) .
 * Datasheet de la cámara OV7670.
 * Desarrollo de los paquetes  de trabajo anteriores.
 * Realizar la coevalucion, segun las indicaciones dadas en clase.
