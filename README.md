@@ -33,17 +33,18 @@ Para este paquete de trabajo se debe contar con:
 * Cable VGA.
 * Plantilla del proyecto sugerido [WP04](https://classroom.github.com/g/) .
 * Datasheet de la cámara OV7670.
-* desarrollo de los paquetes  de trabajo anteriores.
+* Desarrollo de los paquetes  de trabajo anteriores.
+* Realizar la coevalucion, segun las indicaciones dadas en clase.
 
 ## Desarrollo
 
 Como se ha explicado en clase, este paquete de trabajo debe desarrollar el siguiente bloque funcional:
 
-![CAPTURADATOS](./docs./figs./cajacapturadatos.png)
+![CAPTURADATOS](./docs/figs/cajacapturadatos.png)
 
 Para lo cual, la captura de datos debe ser acorde al funcionamiento de la cámara. para ello debe analizar la siguiente gráfica:
 
-![CAPTURADATOS](./docs./figs./cajacapturadatos2.PNG)
+![CAPTURADATOS](./docs/figs/cajacapturadatos2.PNG)
 
 1. Diseñar el sistema digital de captura de los pixeles de la cámara. No es necesario incluir las señales de control  Xclk, pwdn y reset, estas están descritas en el top del proyecto.
 2. Diseñar el downsampler y transmitir la información al buffer de memoria. Recuerde la memoria se ha diseñado para almacenar el pixel en formato RGB332, y almacenar 3 bit para el color Rojo y Verde y 2 bit para el color Azul. Si usted, por ejemplo, selecciona el formato RGB565 de la cámara debe convertir los 5 bit de rojo en 3 bit.
@@ -73,7 +74,10 @@ Al culminar los hitos anteriores deben:
 2. Realizar el test de la pantalla. Programar la FPGA con el bitstream del proyecto y no conectar la cámara. ¿Qué espera visualizar?, ¿Es correcto este resultado ?
 3. Configure la cámara en test por medio del bus I2C con ayuda de Arduino. ¿Es correcto el resultado? ¿Cada cuánto se refresca el buffer de memoria ?
 
- 
+ ### Coevaluación
+
+Cada grupo debe realizar una coevaluación por cada integrante del mismo. El archivo se encuentra en la carpeta coEvaluation.
+
 ***RECUEDE: Es necesario documentar la implementación y registrar la información en README.md, lo puede hacer con ayuda de imágenes o videos***
 
 
