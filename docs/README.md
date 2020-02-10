@@ -120,3 +120,42 @@ Finalmente vemos que cuando fsm_state sea igual a 3 este verifica el estado del 
 
 ![Lectura1](./figs/rgb3.png)
 
+## Reloj
+
+Se hizo la actualización del archivo "clk_32MHZ_to_25M_24M.v" de acuerdo a las especificaciones de la FPGA Nexys 4DDR. El archivo nuevo "clk24_25_nexys4.v" está en la carpeta /hdl/src/PLL/clk24_25_nexys4.v
+
+En las siguientes imágenes se encuentra el paso a paso de cómo se creó el nuevo PLL con Clocking Wizard.
+
+1) Una vez tenemos el proyecto abierto en ISE vamos a tools -> Core Generator. 
+
+![Lectura1](./figs/1.png)
+
+2) Luego le damos doble click a "view by name" y buscamos "Clock Wizard".
+ 
+![Lectura1](./figs/2.png)
+
+3) Después de unos segundos se abrirá el panel de control de Clock Wizard, en donde el único cambio a realizar es en la casilla de "Source", seleccionamos la opción "Global Buffer", observamos que “Input Freq (MHz) – Value” esté en 100,000 y le damos continuar.
+
+![Lectura1](./figs/3.png)
+
+4) Ahora ingresamos las frecuencias de los dos relojes de salida que queremos. Primero se cambia el valor de la casilla "Output Freq (MHz) - Requested" de "CLK_OUT1" por 24,000. Para la segunda frecuencia del reloj activamos primero el reloj 2 dándole clic en la casilla frente a "CLK_OUT2" e ingresando la frecuencia deseada, en este caso 25,000. Sin cambiar nada más, le damos clic a Next.
+
+![Lectura1](./figs/4.png)
+
+5) En las 3 ventanas siguientes daremos next.
+
+![Lectura1](./figs/5.png)
+
+![Lectura1](./figs/6.png)
+
+Observamos que los valores ingresados sean correctos.
+
+![Lectura1](./figs/7.png)
+
+6) En esta última ventana damos click en "Generate" y esperamos que el programa genere el código.
+
+![Lectura1](./figs/8.png)
+
+Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaza en la carpeta /hdl/src/PLL, teniendo cuidado de también reemplazar el nombre del módulo en test_cam.v.
+
+
