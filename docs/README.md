@@ -21,7 +21,7 @@ Figura []. Estados según las señales enviadas por la cámara
 ![conexiones](./figs/Diagconexiones.png)
 Figura []. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
-#### Máxima memoria RAM
+## Máxima memoria RAM
 
 Para determinar el tamaño máximo del buffer de memoria RAM que se puede crear con la FPGA, en este caso la Nexys 4 DDR, primero se revisó el datasheet y se encontró que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
 
@@ -50,3 +50,45 @@ Se decide recortar el tamaño de la imagen para que no exceda la capacidad de la
 
 
 Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 160 x 120 píxeles ocuparía el 5.40 % de la memoria disponible en la FPGA, por lo tanto, se decide usar este tamaño. El tamaño en bytes sería de 32.768.
+
+## Buffer RAM
+
+Para la creación del buffer de memoria se tuvieron en cuenta los parámetros encontrados anteriormente, como los son la cantidad de bits de la dirección (*AW = 15*) y la cantidad de bits de los datos (*DW = 8*). Además, se exportó como parámetro el archivo *image.men* que contiene valores hexadecimales para la creación de líneas horizontales azules claras y rojas que luego serán precargadas en la memoria RAM para inicializarla. Se tomaron como valores de entrada y salida los siguientes:
+
+#### Entradas:
+* *clk_w:* Reloj para la escritura de los datos, en este caso la señal *PCLK* que envía la cámara.
+* *addr_in [14:0]:* La dirección de entrada en la cual serán guardados los datos.
+* *data_in [7:0]:* El dato de entrada, es decir, el pixel en formato RGB 332.
+* *regwrite:* Señal que controla cuando se escribe en la memoria RAM.
+* *clk_r:* Reloj para la lectura de los datos, en este caso es *25 MHz* la misma frecuencia a la que operan las pantallas VGA.
+* *addr_out [14:0]:* La dirección del dato que debe leer en la memoria para mostrarlo en pantalla.
+
+#### Salidas:
+* *data_out [7:0]:* El dato que debe mostrar según la dirección brindada.
+
+
+![bufferRAM1](./figs/bufferRAM1.jpg)
+
+Se define un parámetro local para realizar el cálculo de la cantidad de bits de la dirección *2^AW = 2^15*, se crea la RAM tomando como “ancho” de registro 8 bits y un “alto” de 32.768 posiciones.
+
+Para la escritura de los datos se tuvo en cuenta que siempre estuviera en los flancos de subida del reloj de escritura (*PCLK*) y que *regwrite* fuera igual a 1. El pixel *data_in* se guarda en la posición *addr_in*.
+
+La lectura de los datos se sincronizó con el reloj de *25 MHz* y asigna a *data_out* el valor en la posición de memoria *addr_out*. Se inicializa la RAM como se había dicho anteriormente y la última posición se hace igual a cero.
+
+
+![bufferRAM2](./figs/bufferRAM2.jpg)
+
+Se realizó una simulación para comprobar que la memoria RAM responda a los estímulos de lectura y escritura correctamente.
+
+Primero se observa la lectura de algunos de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
+
+![Lectura1](./figs/lecturaUno.jpg)
+
+Luego se puede notar la escritura de 5 datos diferentes.
+
+![Escritura1](./figs/escrituraUno.jpg)
+
+Y finalmente la lectura de los datos añadidos anteriormente.
+
+![Lectura2](./figs/lecturaDos.jpg)
+
