@@ -132,7 +132,7 @@ En las siguientes imágenes se encuentra el paso a paso de cómo se creó el nue
 
 2) Luego le damos doble click a "view by name" y buscamos "Clock Wizard".
  
-![Lectura1](./figs/2.png)
+![Lectura1](./figs/2.PNG)
 
 3) Después de unos segundos se abrirá el panel de control de Clock Wizard, en donde el único cambio a realizar es en la casilla de "Source", seleccionamos la opción "Global Buffer", observamos que “Input Freq (MHz) – Value” esté en 100,000 y le damos continuar.
 
