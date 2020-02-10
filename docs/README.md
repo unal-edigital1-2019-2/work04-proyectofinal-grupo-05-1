@@ -116,7 +116,7 @@ aunque después de ese ciclo cont=~cont, este estado es de transición puesto so
 
 ![Lectura1](./figs/rgb2.png)
 
-Finalmente vemos que cuando fsm_state sea igual a 3 este verifica el estado del registro cont, si este es 0 vuelve a hacer lo que estaba haciendo cuando el fsm_state era igual a 2, pero en el segundo ciclo de reloj entra a la condición en el que mem_px_data almacena los datos del azul correspondientes a los datos [4:3] del px_data, además de hacer que px_wr = 1, guardando el pixel en este caso en la posición 0 del buffer de memoria, y que hace que  mem_px_adrr aumente 1, moviendo así la dirección para almacenar el proximo pixel, cont se niega volviendo a 0 y como no se sale de la condición fsm_state=3 el ciclo continúa por los 160X120 pixeles hasta que que se llena el buffer de memoria asignado.
+Finalmente vemos que cuando fsm_state sea igual a 3 este verifica el estado del registro cont, si este es 0 vuelve a hacer lo que estaba haciendo cuando el fsm_state era igual a 2, pero en el segundo ciclo de reloj entra a la condición en el que mem_px_data almacena los datos del azul correspondientes a los datos [4:3] del px_data, además de hacer que px_wr = 1, guardando el pixel en este caso en la posición 0 del buffer de memoria, y que hace que  mem_px_adrr aumente 1, moviendo así la dirección para almacenar el proximo pixel, cont se niega volviendo a 0 y como no se sale de la condición fsm_state=3 el ciclo continúa por los 160x120 pixeles hasta que que se llena el buffer de memoria asignado.
 
 ![Lectura1](./figs/rgb3.png)
 
