@@ -104,7 +104,7 @@ Para ello se crearon variables auxiliares internas:
 * *[AW-1:0] mem_px_addr* Este registro da la dirección en memoria en donde los bits del píxel  serán guardados después del downsampling. 
 * *[7:0] mem_px_data*  En este registro se guarda la información obtenida de px_data correspondiente al píxel durante el proceso de downsampling.
 * *px_wr* Este registro indica si se envía o no el valor almacenado en mem_px_data a la posición de memoria asignada en la RAM.
-* *cont* Este registro que no es entrada ni salida es una variable de control que indica si está leyendo el primer byte o el segundo que forma el pixel
+* *cont* Este registro que no es entrada ni salida es una variable de control que indica si está leyendo el primer byte o el segundo que forma el pixel.
 
 Ya adentrándonos en el código realizado para este fin vemos que el proceso se realiza en el módulo de captura de datos (cam_read.v) 
 Primero vemos la declaración de las entradas y salidas del módulo en las cuales analizamos lo que nos interesa, que es el px_data que trae la información obtenida por la cámara y nuestros registros auxiliares que fueron explicados anteriormente.
