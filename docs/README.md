@@ -92,7 +92,7 @@ Y finalmente la lectura de los datos añadidos anteriormente.
 
 ![Lectura2](./figs/lecturaDos.jpg)
 
-#### Diseño del downsampling de RGB565 a RGB332
+## Diseño del downsampling de RGB565 a RGB332
 Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un pixel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB 332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, escogemos únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) escogemos los 3 y 2 bits más significativos correspondientemente.  
 ![Lectura1](./figs/downsampling.png)
 Para ello se crearon variables auxiliares internas:
