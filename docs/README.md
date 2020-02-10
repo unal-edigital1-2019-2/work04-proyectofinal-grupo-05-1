@@ -93,9 +93,13 @@ Y finalmente la lectura de los datos añadidos anteriormente.
 ![Lectura2](./figs/lecturaDos.jpg)
 
 ## Diseño del downsampling de RGB565 a RGB332
-Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un pixel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB 332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, escogemos únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) escogemos los 3 y 2 bits más significativos correspondientemente.  
-![Lectura1]
-(./figs/downsampling.png)
+Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un pixel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB 332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, escogemos únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) escogemos los 3 y 2 bits más significativos correspondientemente.
+
+
+![Lectura1](./figs/downsampling.png)
+
+
+
 Para ello se crearon variables auxiliares internas:
 * *[AW-1:0] mem_px_addr* Este registro da la dirección en memoria en donde los bits del píxel  serán guardados después del downsampling. 
 * *[7:0] mem_px_data*  En este registro se guarda la información obtenida de px_data correspondiente al píxel durante el proceso de downsampling.
@@ -104,11 +108,15 @@ Para ello se crearon variables auxiliares internas:
 
 Ya adentrándonos en el código realizado para este fin vemos que el proceso se realiza en el módulo de captura de datos (cam_read.v) 
 Primero vemos la declaración de las entradas y salidas del módulo en las cuales analizamos lo que nos interesa, que es el px_data que trae la información obtenida por la cámara y nuestros registros auxiliares que fueron explicados anteriormente.
-![Lectura1]
-(./figs/rgb1.png)
-A continuación vemos que se crea una condicional que depende de PCLK  e internamente se hace otro dentro de una máquina de estados que depende de HREF y VSYNC, la posición del píxel en el buffer de memoria dada por mem_px_adrr se asigna a la posición 0, en el caso 2 del fsm_state que se da en el primer ciclo de reloj vemos que se guardan los pixeles de las posiciones [7:5] y [2:0] de la señal de entrada de la cámara px_data guardando en ellas los valores de rojo y verde mas significativos en el registro mem_px_data lo cuales permanecen allí hasta el próximo ciclo de reloj ya que no se guardan en el buffer de memoria ya que el registro px_wr permanece en 0 y cont=0 aunque después de ese ciclo cont=~cont, este estado es de transición puesto solo ocurre durante el primer ciclo de reloj.
+
+![Lectura1](./figs/rgb1.png)
+
+A continuación vemos que se crea una condicional que depende de PCLK  e internamente se hace otro dentro de una máquina de estados que depende de HREF y VSYNC, la posición del píxel en el buffer de memoria dada por mem_px_adrr se asigna a la posición 0, en el caso 2 del fsm_state que se da en el primer ciclo de reloj vemos que se guardan los pixeles de las posiciones [7:5] y [2:0] de la señal de entrada de la cámara px_data guardando en ellas los valores de rojo y verde mas significativos en el registro mem_px_data lo cuales permanecen allí hasta el próximo ciclo de reloj ya que no se guardan en el buffer de memoria ya que el registro px_wr permanece en 0 y cont=0 
+aunque después de ese ciclo cont=~cont, este estado es de transición puesto solo ocurre durante el primer ciclo de reloj.
+
 ![Lectura1](./figs/rgb2.png)
 
 Finalmente vemos que cuando fsm_state sea igual a 3 este verifica el estado del registro cont, si este es 0 vuelve a hacer lo que estaba haciendo cuando el fsm_state era igual a 2, pero en el segundo ciclo de reloj entra a la condición en el que mem_px_data almacena los datos del azul correspondientes a los datos [4:3] del px_data, además de hacer que px_wr = 1, guardando el pixel en este caso en la posición 0 del buffer de memoria, y que hace que  mem_px_adrr aumente 1, moviendo así la dirección para almacenar el proximo pixel, cont se niega volviendo a 0 y como no se sale de la condición fsm_state=3 el ciclo continúa por los 160X120 pixeles hasta que que se llena el buffer de memoria asignado.
+
 ![Lectura1](./figs/rgb3.png)
 
