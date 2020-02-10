@@ -4,3 +4,15 @@
 #### Jhohan David Contreras Aragón		1007687796
 #### Andrés Felipe Medina Medina 		1015464557
 #### Mitchell Elizabeth Rodríguez Barreto	1032503089
+
+![d_estructural](./docs/figs/Diagrama_estructural_todo.png)
+Figura []. Diagrama estructural de toda la descripción del hardware de la cámara
+
+![d_funcional](./docs/figs/Diagrama_funcional.png)
+Figura []. Diagrama funcional del módulo diseñado *cam_read.v*
+
+![fsm](./docs/figs/fsm_state.png)
+Figura []. Máquina de estado finitos para la captura de datos y contadores
+
+![fsm_sennal](./docs/figs/sennal_estados.png)
+Figura []. Estados según las señales enviadas por la cámara
