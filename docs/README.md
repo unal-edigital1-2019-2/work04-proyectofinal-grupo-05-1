@@ -43,14 +43,13 @@ El tamaño en bits de la memoria RAM sería el número de posiciones por el anch
 
 Como se puede observar el número de bits es cercano al máximo permitido en la tarjeta más es conveniente alejarse de ese valor ya que la memoria no puede llegar a llenarse y hacer que deje de funcionar correctamente la FPGA así.
 
-* Para una imagen de 160 x 120 píxeles.
-Se decide recortar el tamaño de la imagen para que no exceda la capacidad de la FPGA, se escala por un factor de 4, por lo que la nueva imagen es ahora 1/16 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones, o píxeles, totales es de 160 x 120 = 19.200. Se hace el mismo procedimiento y se encuentra que el exponente de 2 más cercano que almacena esta cantidad de pixeles es:
+*	Para una imagen de 320 x 240 píxeles. 
+Se decide recortar el tamaño de la imagen para que no exceda la capacidad de la FPGA, se escala por un factor de 2, por lo que la nueva imagen es ahora 1/4 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones, o píxeles, totales es de 320 x 240 = 76.800. Se hace el mismo procedimiento y se encuentra que el exponente de 2 más cercano que almacena esta cantidad de pixeles es:
 
 ![eq3](./figs/eq3.png)
 
 
-Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 160 x 120 píxeles ocuparía el 5.40 % de la memoria disponible en la FPGA, por lo tanto, se decide usar este tamaño. El tamaño en bytes sería de 32.768.
-
+Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 320 x 240 píxeles ocuparía el 21.57 % de la memoria disponible en la FPGA, por lo tanto, se decide usar este tamaño. El tamaño en bytes sería de 131.072.
 ## Buffer RAM
 
 Para la creación del buffer de memoria se tuvieron en cuenta los parámetros encontrados anteriormente, como los son la cantidad de bits de la dirección (*AW = 15*) y la cantidad de bits de los datos (*DW = 8*). Además, se exportó como parámetro el archivo *image.men* que contiene valores hexadecimales para la creación de líneas horizontales azules claras y rojas que luego serán precargadas en la memoria RAM para inicializarla. Se tomaron como valores de entrada y salida los siguientes:
