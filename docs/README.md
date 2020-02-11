@@ -290,7 +290,7 @@ Para este punto sabíamos que la conformación del píxel era correcta, así que
 De la imagen se puede deducir que hay cierto desfase, que las líneas no son completamente horizontales y que se están almacenando en posiciones incorrectas. Este hallazgo nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo. Para salir de esta duda, se desarrollaron los contadores mencionados anteriormente, el de HREF, píxeles totales y por línea. Estas pruebas nos permitieron saber el formato verdadero en el que la cámara estaba enviando la información y así encontrar el error en el código para su debida corrección.
 
 Imagen contadores de HREF, píxeles_totales y píxeles_linea.
-Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. EL primer paso fue el de configurar los dos botones que nos permitirán tomar una foto. Este botón permitía el almacenamiento de solo un frame mientras estuviera en HIGH, como se ve en las siguientes imágenes
+Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. El primer paso fue el de configurar los dos botones que nos permitirán tomar una foto. Este botón permitía el almacenamiento de solo un frame mientras estuviera en HIGH, como se ve en las siguientes imágenes
 
 	Imágenes de las fotos
 ![Lectura1](./figs/Mitchell.jpeg)
@@ -301,7 +301,7 @@ Luego se hizo la grabación del video
 
 	Video
 
-Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. EN las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
+Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. En las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
 
 	Foto jugando con la luz y el contraste
 ![Lectura1](./figs/00.jpeg)
