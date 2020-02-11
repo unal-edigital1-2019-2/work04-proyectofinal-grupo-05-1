@@ -185,29 +185,52 @@ Antes de que se trabajara con una máquina de estados que nos permitiera captura
 
      Imagen de las líneas horizontales y de la estática
 ![Lectura1](./figs/Barra_de_colores_horizontal.jpeg)
+![Lectura1](./figs/estatica.jpeg)
+![Lectura1](./figs/estatica.mp4)
      
 Luego se decidió un acercamiento diferente, recomendado por el profesor, el desarrollo de una máquina de estados para la captura de datos. Así que no solo se empezó el desarrollo de la cámara sino de diferentes pruebas para encontrar los puntos problemáticos del código. Se probaron los colores por separado y se hizo una simulación de captura de datos, para probar si la conformación del pixel era correcta. La prueba de los colores individuales consistía en solo conectar los pines correspondientes al dowsampling del color deseado en HIGH y los demás en LOW, es decir, para el color rojo se toman únicamente los 3 datos más significativos del primer bus de datos. Esta prueba nos dio lo siguientes resultados:
 
-Imagen de las pruebas de colores – color 
+	Imagen de las pruebas de colores – color 
+![Lectura1](./figs/azul.jpeg)
+![Lectura1](./figs/rojo.jpeg)
+![Lectura1](./figs/verde.jpeg)
 La simulación de la captura de datos, explicada anteriormente, arrojo la siguiente imagen
 	
 	Imagen prueba simulación de captura de datos
+	![Lectura1](./figs/.jpeg)
 
 Para este punto sabíamos que la conformación del pixel era correcta, así que se procedió con demás pruebas. Las siguientes pruebas fueron los contadores de líneas (HREF) y de pixeles existentes, tanto por línea como en general y la simulación de captura de datos, pero esta vez con columnas de varios colores. La simulación nos arrojó las siguientes barras
 
 	Imagen prueba simulación de colores - barras
+![Lectura1](./figs/barras_verticales_1.jpeg)
+![Lectura1](./figs/barras_verticales_2.jpeg)
+
 De la imagen se puede deducir que hay cierto desfase, que las líneas no son completamente horizontales y que se están almacenando en posiciones incorrectas. Este hallazgo nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo. Para salir de esta duda, se desarrollaron los contadores mencionados anteriormente, el de HREF, pixeles totales y por línea. Estas pruebas nos permitieron saber el formato verdadero en el que la cámara estaba enviando la información y así encontrar el error en el código para su debida corrección.
 
 Imagen contadores de HREF, Pixeles_totales y Pixeles_linea.
 Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. EL primer paso fue el de configurar los dos botones que nos permitirán tomar una foto. Este botón permitía el almacenamiento de solo un frame mientras estuviera en HIGH, como se ve en las siguientes imágenes
 
 	Imágenes de las fotos
+![Lectura1](./figs/Mitchell.jpeg)
+![Lectura1](./figs/Felipe.jpeg)
+![Lectura1](./figs/Jhohan.jpeg)
+
 Luego se hizo la grabación del video
 
-Video
+	Video
+
 Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. EN las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
 
 	Foto jugando con la luz y el contraste
+![Lectura1](./figs/00.jpeg)
+![Lectura1](./figs/FF.jpeg)
+![Lectura1](./figs/0A.jpeg)
+
+![Lectura1](./figs/00_Contraste.jpeg)
+![Lectura1](./figs/0A_contraste.jpeg)
+![Lectura1](./figs/40_contraste.jpeg)
 Y para finalizar, se hizo lo mismo con las matrices de colores, en donde se cambiaban sus valores para ver su influencia en las fotos
 	
 	Fotos jugando con las matrices de colores.
+![Lectura1](./figs/Matriz_de_colores_1.jpeg)
+![Lectura1](./figs/Matriz_de_colores_2.jpeg)
