@@ -197,4 +197,9 @@ Para este punto sabíamos que la conformación del pixel era correcta, así que 
 	Imagen prueba simulación de colores - barras
 De la imagen se puede deducir que hay cierto desfase, que las líneas no son completamente horizontales y que se están almacenando en posiciones incorrectas. Este hallazgo nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo. Para salir de esta duda, se desarrollaron los contadores mencionados anteriormente, el de HREF, pixeles totales y por línea. Estas pruebas nos permitieron saber el formato verdadero en el que la cámara estaba enviando la información y así encontrar el error en el código para su debida corrección.
 
+Imagen contadores de HREF, Pixeles_totales y Pixeles_linea.
+Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. EL primer paso fue el de configurar los dos botones que nos permitirán tomar una foto. Este botón permitía el almacenamiento de solo un frame mientras estuviera en HIGH, como se ve en las siguientes imágenes
+
+	Imágenes de las fotos
+Luego se hizo la grabación del video
 
