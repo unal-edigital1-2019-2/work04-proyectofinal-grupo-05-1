@@ -29,7 +29,7 @@ Para determinar el tamaño máximo del buffer de memoria RAM que se puede crear 
 Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato del pixel con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final.El formato de imagen escogido es el RGB 332, en donde cada píxel necesita 8 bits, es decir, cada pixel está conformado por 1 byte. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
 
 
-![ancho_registro](./figs/Ancho_registro.PNG| width=100)
+![ancho_registro](./figs/Ancho_registro.PNG | width=100)
 
 
 En donde cada fila es un pixel, por ende la altura está definida por la cantidad de pixeles que hay en la imagen y la cantidad de columnas representa la cantidad de bits por pixel en este caso 8.
