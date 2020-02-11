@@ -1,4 +1,4 @@
-# Cámara digital
+# CÁMARA DIGITAL
 ## GRUPO DE TRABAJO 05
 
 ## INTEGRANTES DEL GRUPO
@@ -18,43 +18,45 @@ Para realizar la implementación de la cámara digital se usó el módulo princi
 
 * Se instanciaron los módulos ***clk24_25_nexys4.v***, ***cam_read.v***, ***buffer_ram_dp.v*** y ***VGA_driver.v*** (algunos brindados en el mismo repositorio). 
 
-![Imagen 1][1]  ![Imagen 2][2]
+![Imagen 1](./figs/instancia_reloj.jpeg)
 
- [1]: ./figs/instancia_reloj.jpeg
- [2]: ./figs/instancia_camRead.jpeg
+Figura 1. Instancia del módulo ***clk24_25_nexys4.v***.
 
-Figura []. Instancia de los módulos ***clk24_25_nexys4.v*** y ***cam_read.v***.
+![Imagen 2](./figs/instancia_camRead.jpeg)
 
-![Imagen 3][3]  ![Imagen 4][4]
+Figura 2. Instancia del módulo ***cam_read.v***.
 
- [3]: ./figs/instancia_bufferRAM.jpeg
- [4]: ./figs/instancia_VGAdriver.jpeg
+![Imagen 3](./figs/instancia_bufferRAM.jpeg)
 
-Figura []. Instancia de los módulos ***buffer_ram_dp.v*** y ***VGA_driver.v***.
+Figura 3. Instancia del módulo ***buffer_ram_dp.v***.
+
+![Imagen 4](./figs/instancia_VGAdriver.jpeg)
+
+Figura 4. Instancia del módulo ***VGA_driver.v***.
 
 * Se realizó la lógica combinacional para obtener *DP_RAM_addr_out* a partir de la posición del píxel en la pantalla.
 
 ![addr_out](./figs/addr_out.jpeg)
 
-Figura []. Dirección DP_RAM_addr_out a partir de la dirección en la pantalla.
+Figura 5. Dirección DP_RAM_addr_out a partir de la dirección en la pantalla.
 
-* Se realizó la lógica combinacional para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla. Para hacer dicha conversión se añadieron ceros en las cifras menos significativas faltantes, es decir, para el rojo y el verde sólo se agregó un cero para completar los 4 y en el azul dos ceros.
+* Se realizó la lógica combinacional para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla VGA. Para hacer dicha conversión se añadieron ceros en las cifras menos significativas faltantes, es decir, para el rojo y el verde sólo se agregó un cero para completar los 4 y en el azul dos ceros.
 
 ![RGB332_444](./figs/RGB332_RGB444.jpeg)
 
-Figura []. Conversión de RGB332 a RGB444.
+Figura 6. Conversión de RGB332 a RGB444.
 
 Además se realizaron algunos cambios en este módulo, se colocó como ancho de la imagen 320 píxeles y 240 píxeles de alto y se modificó la cantidad de bits de la dirección a 17. La razón de seleccionar estos valores se explicará más adelante.
 
 ![RGB332_444](./figs/parametros_foto.jpeg)
 
-Figura []. Parámetros modificados.
+Figura 7. Parámetros modificados.
 
 En la siguiente figura se pueden observar las entradas, salidas e interconexiones entre los módulos, los puntos verdes que se presentan en algunas entradas hace referencia a que son enviadas desde la FPGA.
 
 ![d_estructural](./figs/Diagrama_estructural_todo.png)
 
-Figura []. Diagrama estructural de toda la descripción del hardware de la cámara
+Figura 8. Diagrama estructural de toda la descripción del hardware de la cámara
 
 ### Memoria RAM (***buffer_ram_dp.v***)
 
@@ -68,7 +70,7 @@ Para calcular el número de bits que va a ocupar la memoria se debe tener en cue
 
 ![ancho_registro](./figs/Ancho_registro.PNG)
 
-Figura []. Tamaño del registro
+Figura 9. Tamaño del registro
 
 En donde cada fila es un píxel, por ende, la altura está definida por la cantidad de píxeles que hay en la imagen y la cantidad de columnas representa la cantidad de bits por píxel, en este caso 8.
 
@@ -109,7 +111,7 @@ Las entradas y salidas tomadas para éste módulo fueron las siguientes:
 
 ![bufferRAM1](./figs/bufferRAM1.jpg)
 
-Figura []. Declaración del módulo.
+Figura 10. Declaración del módulo.
 
 Se define un parámetro local para realizar el cálculo de la cantidad de bits de la dirección *2^AW = 2^17*, se crea la RAM tomando como “ancho” de registro 8 bits y un “alto” de 32.768 posiciones.
 
@@ -119,29 +121,45 @@ La lectura de los datos se sincronizó con el reloj de *25 MHz* y asignó a *dat
 
 ![bufferRAM2](./figs/bufferRAM2.jpg)
 
-Figura []. Memoria RAM, lectura y escritura.
+Figura 11. Memoria RAM, lectura y escritura.
 
-En la siguiente figura se puede observar el diagrama funcional del módulo:
+En la siguiente figura se puede observar el diagrama funcional del módulo; la variable *init* se refiere al botón de encendido o apagado de la cámara, en este caso es el mismo que el de la FPGA:
 
 ![d_funcional_ram](./figs/Diagrama_funcional_ram.png)
 
-Figura []. Diagrama funcional del buffer de memoria RAM.
+Figura 12. Diagrama funcional del buffer de memoria RAM.
 
 Se realizó una simulación para comprobar que la memoria RAM responda a los estímulos de lectura y escritura correctamente.
 
-Primero se observa la lectura de algunos de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
+Los valores añadidos a la simulación se pueden encontrar en [work01-ramdp-grupo-05]( https://github.com/unal-edigital1-2019-2/work01-ramdp-grupo-05). La variable *regread* se eliminó del módulo del buffer de memoria actual debido a que se le envían los datos de la RAM a la pantalla constantemente. Los estímulos son los siguientes:
+
+![estimulo_escritura](./figs/estimulo_escritura.jpeg)
+
+Figura 13. Estímulos de lectura (valores iniciales) y escritura en la RAM.
+
+![estimulo_lectura](./figs/estimulo_lectura.jpeg)
+
+Figura 14. Estímulos de escritura y lectura en la RAM.
+
+
+Se observa la lectura de algunos de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
 
 ![Lectura1](./figs/lecturaUno.jpg)
+
+Figura 15. Lectura de los datos con los que se inicializó la RAM.
 
 Luego se puede notar la escritura de 5 datos diferentes.
 
 ![Escritura1](./figs/escrituraUno.jpg)
 
+Figura 16. Escritura de los datos mostrados en la figura 13.
+
 Y finalmente la lectura de los datos añadidos anteriormente.
 
 ![Lectura2](./figs/lecturaDos.jpg)
 
- 
+Figura 17. Lectura de los datos recién insertados.
+
 ### Captura de datos y downsampling (***cam_read.v***)
 
 ---
