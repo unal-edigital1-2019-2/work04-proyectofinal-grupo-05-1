@@ -203,3 +203,10 @@ Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una fo
 	Imágenes de las fotos
 Luego se hizo la grabación del video
 
+Video
+Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. EN las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
+
+	Foto jugando con la luz y el contraste
+Y para finalizar, se hizo lo mismo con las matrices de colores, en donde se cambiaban sus valores para ver su influencia en las fotos
+	
+	Fotos jugando con las matrices de colores.
