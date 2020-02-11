@@ -17,41 +17,38 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module buffer_ram_dp#( 
-	parameter AW = 15, // Cantidad de bits  de la dirección 
-	parameter DW = 8, // cantidad de Bits de los datos 
-	parameter   imageFILE= "src/image.men")
+	parameter AW = 17, 				// Cantidad de bits  de la direccion 
+	parameter DW = 8, 				// Cantidad de bits de los datos 
+	parameter   imageFILE= "src/image.men") // Archivo para inicializar la RAM
 	(  
-	input  clk_w, 
-	input  [AW-1: 0] addr_in, 
-	input  [DW-1: 0] data_in,
+	input  clk_w,						// Reloj de escritura
+	input  [AW-1: 0] addr_in, 		// Direccion de entrada
+	input  [DW-1: 0] data_in,		// Dato de entrada
 	input  regwrite, 
 	
-	input  clk_r, 
-	input [AW-1: 0] addr_out,
-	output reg [DW-1: 0] data_out
+	input  clk_r,						// Reloj de lectura
+	input [AW-1: 0] addr_out,  	// Direccion de salida
+	output reg [DW-1: 0] data_out // Dato de salida
 	);
 
-// Calcular el número de posiciones totales de memoria 
-localparam NPOS = 2 ** AW; // Memoria
+// Calcular el numero de posiciones totales de memoria 
+localparam NPOS = 2 ** AW; 				// Tamanno de la memoria
+reg [DW-1: 0] ram [0: NPOS-1]; 			// Memoria (bits datos x bits direccion)
 
- reg [DW-1: 0] ram [0: NPOS-1]; 
-
-
-//	 escritura  de la memoria port 1 
-always @(posedge clk_w) begin 
+// Escritura  de la memoria port 1 
+always @(posedge clk_w) begin 			// Flancos de subida reloj de escritura
        if (regwrite == 1) 
-             ram[addr_in] <= data_in;
+             ram[addr_in] <= data_in;	// Escribir en memoria
 end
 
-//	 Lectura  de la memoria port 2 
-always @(posedge clk_r) begin 
-		data_out <= ram[addr_out]; 
+//	Lectura  de la memoria port 2 
+always @(posedge clk_r) begin 			// Flancos de subida reloj de lectura
+		data_out <= ram[addr_out]; 		// Leer de la memoria
 end
-
 
 initial begin
-	$readmemh(imageFILE, ram);
-	ram[15'b111111111111111]=8'b00000000;	
+	$readmemh(imageFILE, ram); 			// Inicializando la memoria con image.men
+	ram[17'b11111111111111111]=8'b00000000;	// Ultima posicion en memoria, igual a 0
 end
 
 endmodule

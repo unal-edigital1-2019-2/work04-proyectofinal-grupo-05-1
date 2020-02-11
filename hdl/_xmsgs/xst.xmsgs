@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/test_cam.v" Line 110: Port <arg fmt="%s" index="1">LOCKED</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 132: Assignment to <arg fmt="%s" index="1">clkfboutb_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 134: Assignment to <arg fmt="%s" index="1">clkout0b_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 136: Assignment to <arg fmt="%s" index="1">clkout1b_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 137: Assignment to <arg fmt="%s" index="1">clkout2_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 138: Assignment to <arg fmt="%s" index="1">clkout2b_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 139: Assignment to <arg fmt="%s" index="1">clkout3_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 140: Assignment to <arg fmt="%s" index="1">clkout3b_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 141: Assignment to <arg fmt="%s" index="1">clkout4_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 142: Assignment to <arg fmt="%s" index="1">clkout5_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 143: Assignment to <arg fmt="%s" index="1">clkout6_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 155: Assignment to <arg fmt="%s" index="1">do_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 156: Assignment to <arg fmt="%s" index="1">drdy_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 162: Assignment to <arg fmt="%s" index="1">psdone_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 165: Assignment to <arg fmt="%s" index="1">clkinstopped_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/PLL/clk24_25_nexys4.v" Line 166: Assignment to <arg fmt="%s" index="1">clkfbstopped_unused</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 43: Using initial value of <arg fmt="%s" index="1">pas_href</arg> since it is never assigned
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 72: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 78: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 95: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 102: Result of <arg fmt="%d" index="1">18</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/cam_read.v" Line 103: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1670" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/buffer_ram_dp.v" Line 50: Signal &lt;<arg fmt="%s" index="1">ram</arg>&gt; in initial block is partially initialized.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/VGA_driver.v" Line 73: Result of <arg fmt="%d" index="1">10</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">9</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/VGA_driver.v" Line 78: Result of <arg fmt="%d" index="1">11</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">10</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/test_cam.v" Line 185: Result of <arg fmt="%d" index="1">19</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/src/test_cam.v</arg>&quot; line <arg fmt="%s" index="2">111</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk25_24</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DP_RAM/Mram_ram</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+</messages>
+

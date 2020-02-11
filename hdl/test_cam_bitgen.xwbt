@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.ncd
+OUTFILE=/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.bit
+FAMILY=Artix7
+PART=xc7a100t-3csg324
+WORKINGDIR=/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl
+LICENSE=WebPack
+USER_INFO=211795755_0_0_435

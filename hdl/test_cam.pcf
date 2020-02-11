@@ -1,0 +1,178 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Feb 11 00:29:26 2020
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "LEDs<10>" LOCATE = SITE "U14" LEVEL 1;
+COMP "LEDs<11>" LOCATE = SITE "T16" LEVEL 1;
+COMP "LEDs<12>" LOCATE = SITE "V15" LEVEL 1;
+COMP "LEDs<13>" LOCATE = SITE "V14" LEVEL 1;
+COMP "LEDs<14>" LOCATE = SITE "V12" LEVEL 1;
+COMP "VGA_R<0>" LOCATE = SITE "A3" LEVEL 1;
+COMP "LEDs<15>" LOCATE = SITE "V11" LEVEL 1;
+COMP "CAM_xclk" LOCATE = SITE "H4" LEVEL 1;
+COMP "VGA_R<3>" LOCATE = SITE "A4" LEVEL 1;
+COMP "VGA_R<1>" LOCATE = SITE "B4" LEVEL 1;
+COMP "VGA_R<2>" LOCATE = SITE "C5" LEVEL 1;
+COMP "CAM_pwdn" LOCATE = SITE "G1" LEVEL 1;
+COMP "rst" LOCATE = SITE "M17" LEVEL 1;
+COMP "CAM_px_data<0>" LOCATE = SITE "K1" LEVEL 1;
+COMP "CAM_px_data<3>" LOCATE = SITE "J3" LEVEL 1;
+COMP "CAM_px_data<4>" LOCATE = SITE "J2" LEVEL 1;
+COMP "CAM_px_data<1>" LOCATE = SITE "E7" LEVEL 1;
+COMP "CAM_px_data<2>" LOCATE = SITE "F6" LEVEL 1;
+COMP "CAM_px_data<7>" LOCATE = SITE "E6" LEVEL 1;
+COMP "CAM_px_data<5>" LOCATE = SITE "J4" LEVEL 1;
+COMP "CAM_px_data<6>" LOCATE = SITE "G6" LEVEL 1;
+COMP "boton_CAM" LOCATE = SITE "P17" LEVEL 1;
+COMP "CAM_reset" LOCATE = SITE "G3" LEVEL 1;
+COMP "CAM_vsync" LOCATE = SITE "G4" LEVEL 1;
+PIN CAM_vsync_pin<0> = BEL "CAM_vsync" PINNAME PAD;
+PIN "CAM_vsync_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "VGA_B<0>" LOCATE = SITE "B7" LEVEL 1;
+COMP "VGA_B<3>" LOCATE = SITE "D8" LEVEL 1;
+COMP "VGA_B<1>" LOCATE = SITE "C7" LEVEL 1;
+COMP "VGA_B<2>" LOCATE = SITE "D7" LEVEL 1;
+COMP "VGA_G<0>" LOCATE = SITE "C6" LEVEL 1;
+COMP "VGA_G<3>" LOCATE = SITE "A6" LEVEL 1;
+COMP "VGA_G<1>" LOCATE = SITE "A5" LEVEL 1;
+COMP "VGA_G<2>" LOCATE = SITE "B6" LEVEL 1;
+COMP "boton_video" LOCATE = SITE "P18" LEVEL 1;
+COMP "clk" LOCATE = SITE "E3" LEVEL 1;
+COMP "VGA_Vsync_n" LOCATE = SITE "B12" LEVEL 1;
+COMP "CAM_pclk" LOCATE = SITE "H2" LEVEL 1;
+PIN CAM_pclk_pin<0> = BEL "CAM_pclk" PINNAME PAD;
+PIN "CAM_pclk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "VGA_Hsync_n" LOCATE = SITE "B11" LEVEL 1;
+COMP "switch<1>" LOCATE = SITE "L16" LEVEL 1;
+COMP "switch<2>" LOCATE = SITE "M13" LEVEL 1;
+COMP "switch<0>" LOCATE = SITE "J15" LEVEL 1;
+COMP "CAM_href" LOCATE = SITE "H1" LEVEL 1;
+PIN CAM_href_pin<0> = BEL "CAM_href" PINNAME PAD;
+PIN "CAM_href_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "LEDs<2>" LOCATE = SITE "J13" LEVEL 1;
+COMP "LEDs<1>" LOCATE = SITE "K15" LEVEL 1;
+COMP "LEDs<4>" LOCATE = SITE "R18" LEVEL 1;
+COMP "LEDs<3>" LOCATE = SITE "N14" LEVEL 1;
+COMP "LEDs<0>" LOCATE = SITE "H17" LEVEL 1;
+COMP "LEDs<9>" LOCATE = SITE "T15" LEVEL 1;
+COMP "LEDs<6>" LOCATE = SITE "U17" LEVEL 1;
+COMP "LEDs<5>" LOCATE = SITE "V17" LEVEL 1;
+COMP "LEDs<8>" LOCATE = SITE "V16" LEVEL 1;
+COMP "LEDs<7>" LOCATE = SITE "U16" LEVEL 1;
+PIN DP_RAM/Mram_ram1_pins<67> = BEL "DP_RAM/Mram_ram1" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram1_pins<66> = BEL "DP_RAM/Mram_ram1" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram10_pins<67> = BEL "DP_RAM/Mram_ram10" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram10_pins<66> = BEL "DP_RAM/Mram_ram10" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram101_pins<67> = BEL "DP_RAM/Mram_ram101" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram101_pins<66> = BEL "DP_RAM/Mram_ram101" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram11_pins<67> = BEL "DP_RAM/Mram_ram11" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram11_pins<66> = BEL "DP_RAM/Mram_ram11" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram111_pins<67> = BEL "DP_RAM/Mram_ram111" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram111_pins<66> = BEL "DP_RAM/Mram_ram111" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram12_pins<67> = BEL "DP_RAM/Mram_ram12" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram12_pins<66> = BEL "DP_RAM/Mram_ram12" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram121_pins<67> = BEL "DP_RAM/Mram_ram121" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram121_pins<66> = BEL "DP_RAM/Mram_ram121" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram13_pins<67> = BEL "DP_RAM/Mram_ram13" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram13_pins<66> = BEL "DP_RAM/Mram_ram13" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram131_pins<67> = BEL "DP_RAM/Mram_ram131" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram131_pins<66> = BEL "DP_RAM/Mram_ram131" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram14_pins<67> = BEL "DP_RAM/Mram_ram14" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram14_pins<66> = BEL "DP_RAM/Mram_ram14" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram141_pins<67> = BEL "DP_RAM/Mram_ram141" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram141_pins<66> = BEL "DP_RAM/Mram_ram141" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram15_pins<67> = BEL "DP_RAM/Mram_ram15" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram15_pins<66> = BEL "DP_RAM/Mram_ram15" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram151_pins<67> = BEL "DP_RAM/Mram_ram151" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram151_pins<66> = BEL "DP_RAM/Mram_ram151" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram16_pins<67> = BEL "DP_RAM/Mram_ram16" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram16_pins<66> = BEL "DP_RAM/Mram_ram16" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram161_pins<67> = BEL "DP_RAM/Mram_ram161" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram161_pins<66> = BEL "DP_RAM/Mram_ram161" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram17_pins<67> = BEL "DP_RAM/Mram_ram17" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram17_pins<66> = BEL "DP_RAM/Mram_ram17" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram2_pins<67> = BEL "DP_RAM/Mram_ram2" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram2_pins<66> = BEL "DP_RAM/Mram_ram2" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram21_pins<67> = BEL "DP_RAM/Mram_ram21" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram21_pins<66> = BEL "DP_RAM/Mram_ram21" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram3_pins<67> = BEL "DP_RAM/Mram_ram3" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram3_pins<66> = BEL "DP_RAM/Mram_ram3" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram31_pins<67> = BEL "DP_RAM/Mram_ram31" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram31_pins<66> = BEL "DP_RAM/Mram_ram31" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram4_pins<67> = BEL "DP_RAM/Mram_ram4" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram4_pins<66> = BEL "DP_RAM/Mram_ram4" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram41_pins<67> = BEL "DP_RAM/Mram_ram41" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram41_pins<66> = BEL "DP_RAM/Mram_ram41" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram5_pins<67> = BEL "DP_RAM/Mram_ram5" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram5_pins<66> = BEL "DP_RAM/Mram_ram5" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram51_pins<67> = BEL "DP_RAM/Mram_ram51" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram51_pins<66> = BEL "DP_RAM/Mram_ram51" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram6_pins<67> = BEL "DP_RAM/Mram_ram6" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram6_pins<66> = BEL "DP_RAM/Mram_ram6" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram61_pins<67> = BEL "DP_RAM/Mram_ram61" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram61_pins<66> = BEL "DP_RAM/Mram_ram61" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram7_pins<67> = BEL "DP_RAM/Mram_ram7" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram7_pins<66> = BEL "DP_RAM/Mram_ram7" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram71_pins<67> = BEL "DP_RAM/Mram_ram71" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram71_pins<66> = BEL "DP_RAM/Mram_ram71" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram8_pins<67> = BEL "DP_RAM/Mram_ram8" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram8_pins<66> = BEL "DP_RAM/Mram_ram8" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram81_pins<67> = BEL "DP_RAM/Mram_ram81" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram81_pins<66> = BEL "DP_RAM/Mram_ram81" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram9_pins<67> = BEL "DP_RAM/Mram_ram9" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram9_pins<66> = BEL "DP_RAM/Mram_ram9" PINNAME CLKBWRCLKL;
+PIN DP_RAM/Mram_ram91_pins<67> = BEL "DP_RAM/Mram_ram91" PINNAME CLKBWRCLKU;
+PIN DP_RAM/Mram_ram91_pins<66> = BEL "DP_RAM/Mram_ram91" PINNAME CLKBWRCLKL;
+TIMEGRP clk25_24_clkout0 = BEL "inst_LPM_FF" BEL "clk25_24/clkout1_buf" BEL
+        "VGA640x480/countY_0" BEL "VGA640x480/countX_0" BEL
+        "VGA640x480/countY_7" BEL "VGA640x480/countY_6" BEL
+        "VGA640x480/countY_8" BEL "VGA640x480/countY_5" BEL
+        "VGA640x480/countY_4" BEL "VGA640x480/countY_3" BEL
+        "VGA640x480/countY_2" BEL "VGA640x480/countY_1" BEL
+        "VGA640x480/countX_8" BEL "VGA640x480/countX_6" BEL
+        "VGA640x480/countX_4" BEL "VGA640x480/countX_3" BEL
+        "VGA640x480/countX_5" BEL "VGA640x480/countX_2" BEL
+        "VGA640x480/countX_1" BEL "VGA640x480/countX_9" BEL
+        "VGA640x480/countX_7" PIN "DP_RAM/Mram_ram1_pins<67>" PIN
+        "DP_RAM/Mram_ram1_pins<66>" PIN "DP_RAM/Mram_ram10_pins<67>" PIN
+        "DP_RAM/Mram_ram10_pins<66>" PIN "DP_RAM/Mram_ram101_pins<67>" PIN
+        "DP_RAM/Mram_ram101_pins<66>" PIN "DP_RAM/Mram_ram11_pins<67>" PIN
+        "DP_RAM/Mram_ram11_pins<66>" PIN "DP_RAM/Mram_ram111_pins<67>" PIN
+        "DP_RAM/Mram_ram111_pins<66>" PIN "DP_RAM/Mram_ram12_pins<67>" PIN
+        "DP_RAM/Mram_ram12_pins<66>" PIN "DP_RAM/Mram_ram121_pins<67>" PIN
+        "DP_RAM/Mram_ram121_pins<66>" PIN "DP_RAM/Mram_ram13_pins<67>" PIN
+        "DP_RAM/Mram_ram13_pins<66>" PIN "DP_RAM/Mram_ram131_pins<67>" PIN
+        "DP_RAM/Mram_ram131_pins<66>" PIN "DP_RAM/Mram_ram14_pins<67>" PIN
+        "DP_RAM/Mram_ram14_pins<66>" PIN "DP_RAM/Mram_ram141_pins<67>" PIN
+        "DP_RAM/Mram_ram141_pins<66>" PIN "DP_RAM/Mram_ram15_pins<67>" PIN
+        "DP_RAM/Mram_ram15_pins<66>" PIN "DP_RAM/Mram_ram151_pins<67>" PIN
+        "DP_RAM/Mram_ram151_pins<66>" PIN "DP_RAM/Mram_ram16_pins<67>" PIN
+        "DP_RAM/Mram_ram16_pins<66>" PIN "DP_RAM/Mram_ram161_pins<67>" PIN
+        "DP_RAM/Mram_ram161_pins<66>" PIN "DP_RAM/Mram_ram17_pins<67>" PIN
+        "DP_RAM/Mram_ram17_pins<66>" PIN "DP_RAM/Mram_ram2_pins<67>" PIN
+        "DP_RAM/Mram_ram2_pins<66>" PIN "DP_RAM/Mram_ram21_pins<67>" PIN
+        "DP_RAM/Mram_ram21_pins<66>" PIN "DP_RAM/Mram_ram3_pins<67>" PIN
+        "DP_RAM/Mram_ram3_pins<66>" PIN "DP_RAM/Mram_ram31_pins<67>" PIN
+        "DP_RAM/Mram_ram31_pins<66>" PIN "DP_RAM/Mram_ram4_pins<67>" PIN
+        "DP_RAM/Mram_ram4_pins<66>" PIN "DP_RAM/Mram_ram41_pins<67>" PIN
+        "DP_RAM/Mram_ram41_pins<66>" PIN "DP_RAM/Mram_ram5_pins<67>" PIN
+        "DP_RAM/Mram_ram5_pins<66>" PIN "DP_RAM/Mram_ram51_pins<67>" PIN
+        "DP_RAM/Mram_ram51_pins<66>" PIN "DP_RAM/Mram_ram6_pins<67>" PIN
+        "DP_RAM/Mram_ram6_pins<66>" PIN "DP_RAM/Mram_ram61_pins<67>" PIN
+        "DP_RAM/Mram_ram61_pins<66>" PIN "DP_RAM/Mram_ram7_pins<67>" PIN
+        "DP_RAM/Mram_ram7_pins<66>" PIN "DP_RAM/Mram_ram71_pins<67>" PIN
+        "DP_RAM/Mram_ram71_pins<66>" PIN "DP_RAM/Mram_ram8_pins<67>" PIN
+        "DP_RAM/Mram_ram8_pins<66>" PIN "DP_RAM/Mram_ram81_pins<67>" PIN
+        "DP_RAM/Mram_ram81_pins<66>" PIN "DP_RAM/Mram_ram9_pins<67>" PIN
+        "DP_RAM/Mram_ram9_pins<66>" PIN "DP_RAM/Mram_ram91_pins<67>" PIN
+        "DP_RAM/Mram_ram91_pins<66>";
+PIN clk25_24/mmcm_adv_inst_pins<2> = BEL "clk25_24/mmcm_adv_inst" PINNAME
+        CLKIN1;
+TIMEGRP sys_clk_pin = BEL "clk25_24/clkin1_buf" PIN
+        "clk25_24/mmcm_adv_inst_pins<2>";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+TS_clk25_24_clkout0 = PERIOD TIMEGRP "clk25_24_clkout0" TS_sys_clk_pin * 0.25
+        HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<DeviceUsageSummary rev="6">
+<DesignStatistics TimeStamp="Tue Feb 11 00:30:37 2020"><group name="NetStatistics">
+<item name="NumNets_Active" rev="6">
+<attrib name="value" value="391"/></item>
+<item name="NumNets_Gnd" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="NumNets_Vcc" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="NumNodesOfType_Active_BENTQUAD" rev="6">
+<attrib name="value" value="142"/></item>
+<item name="NumNodesOfType_Active_BOUNCEACROSS" rev="6">
+<attrib name="value" value="57"/></item>
+<item name="NumNodesOfType_Active_BOUNCEIN" rev="6">
+<attrib name="value" value="40"/></item>
+<item name="NumNodesOfType_Active_BUFGROUT" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="NumNodesOfType_Active_BUFINP2OUT" rev="6">
+<attrib name="value" value="8"/></item>
+<item name="NumNodesOfType_Active_CLKPIN" rev="6">
+<attrib name="value" value="172"/></item>
+<item name="NumNodesOfType_Active_DOUBLE" rev="6">
+<attrib name="value" value="611"/></item>
+<item name="NumNodesOfType_Active_GENERIC" rev="6">
+<attrib name="value" value="22"/></item>
+<item name="NumNodesOfType_Active_GLOBAL" rev="6">
+<attrib name="value" value="160"/></item>
+<item name="NumNodesOfType_Active_HLONG" rev="6">
+<attrib name="value" value="23"/></item>
+<item name="NumNodesOfType_Active_HQUAD" rev="6">
+<attrib name="value" value="182"/></item>
+<item name="NumNodesOfType_Active_INPUT" rev="6">
+<attrib name="value" value="2412"/></item>
+<item name="NumNodesOfType_Active_IOBIN2OUT" rev="6">
+<attrib name="value" value="45"/></item>
+<item name="NumNodesOfType_Active_IOBOUTPUT" rev="6">
+<attrib name="value" value="45"/></item>
+<item name="NumNodesOfType_Active_LUTINPUT" rev="6">
+<attrib name="value" value="721"/></item>
+<item name="NumNodesOfType_Active_OUTBOUND" rev="6">
+<attrib name="value" value="311"/></item>
+<item name="NumNodesOfType_Active_OUTPUT" rev="6">
+<attrib name="value" value="325"/></item>
+<item name="NumNodesOfType_Active_PADINPUT" rev="6">
+<attrib name="value" value="27"/></item>
+<item name="NumNodesOfType_Active_PADOUTPUT" rev="6">
+<attrib name="value" value="18"/></item>
+<item name="NumNodesOfType_Active_PINBOUNCE" rev="6">
+<attrib name="value" value="123"/></item>
+<item name="NumNodesOfType_Active_PINFEED" rev="6">
+<attrib name="value" value="4566"/></item>
+<item name="NumNodesOfType_Active_SINGLE" rev="6">
+<attrib name="value" value="629"/></item>
+<item name="NumNodesOfType_Active_VLONG" rev="6">
+<attrib name="value" value="18"/></item>
+<item name="NumNodesOfType_Active_VLONG12" rev="6">
+<attrib name="value" value="23"/></item>
+<item name="NumNodesOfType_Active_VQUAD" rev="6">
+<attrib name="value" value="140"/></item>
+<item name="NumNodesOfType_Gnd_BOUNCEIN" rev="6">
+<attrib name="value" value="271"/></item>
+<item name="NumNodesOfType_Gnd_CLKPIN" rev="6">
+<attrib name="value" value="131"/></item>
+<item name="NumNodesOfType_Gnd_HVCCGNDOUT" rev="6">
+<attrib name="value" value="170"/></item>
+<item name="NumNodesOfType_Gnd_INPUT" rev="6">
+<attrib name="value" value="924"/></item>
+<item name="NumNodesOfType_Gnd_IOBIN2OUT" rev="6">
+<attrib name="value" value="6"/></item>
+<item name="NumNodesOfType_Gnd_IOBOUTPUT" rev="6">
+<attrib name="value" value="6"/></item>
+<item name="NumNodesOfType_Gnd_PADINPUT" rev="6">
+<attrib name="value" value="6"/></item>
+<item name="NumNodesOfType_Gnd_PINBOUNCE" rev="6">
+<attrib name="value" value="195"/></item>
+<item name="NumNodesOfType_Gnd_PINFEED" rev="6">
+<attrib name="value" value="1062"/></item>
+<item name="NumNodesOfType_Vcc_HVCCGNDOUT" rev="6">
+<attrib name="value" value="61"/></item>
+<item name="NumNodesOfType_Vcc_INPUT" rev="6">
+<attrib name="value" value="129"/></item>
+<item name="NumNodesOfType_Vcc_LUTINPUT" rev="6">
+<attrib name="value" value="100"/></item>
+<item name="NumNodesOfType_Vcc_PINFEED" rev="6">
+<attrib name="value" value="229"/></item>
+</group>
+<group name="SiteStatistics">
+<item name="BUFG-BUFGCTRL" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="IOB33-IOB33M" rev="6">
+<attrib name="value" value="24"/></item>
+<item name="IOB33-IOB33S" rev="6">
+<attrib name="value" value="27"/></item>
+<item name="RAMB36E1-RAMBFIFO36E1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="SLICEL-SLICEM" rev="6">
+<attrib name="value" value="28"/></item>
+</group>
+<group name="MiscellaneousStatistics">
+<item name="AGG_BONDED_IO" rev="5">
+<attrib name="value" value="51"/></item>
+<item name="AGG_IO" rev="5">
+<attrib name="value" value="51"/></item>
+<item name="AGG_LOCED_IO" rev="5">
+<attrib name="value" value="51"/></item>
+<item name="AGG_SLICE" rev="5">
+<attrib name="value" value="79"/></item>
+<item name="NUM_BONDED_IOB33" rev="5">
+<attrib name="value" value="51"/></item>
+<item name="NUM_BSFULL" rev="5">
+<attrib name="value" value="112"/></item>
+<item name="NUM_BSLUTONLY" rev="5">
+<attrib name="value" value="117"/></item>
+<item name="NUM_BSREGONLY" rev="5">
+<attrib name="value" value="1"/></item>
+<item name="NUM_BSUSED" rev="5">
+<attrib name="value" value="230"/></item>
+<item name="NUM_BUFG" rev="5">
+<attrib name="value" value="5"/></item>
+<item name="NUM_LOCED_IOB33" rev="5">
+<attrib name="value" value="51"/></item>
+<item name="NUM_LOGIC_O5ANDO6" rev="5">
+<attrib name="value" value="21"/></item>
+<item name="NUM_LOGIC_O5ONLY" rev="5">
+<attrib name="value" value="79"/></item>
+<item name="NUM_LOGIC_O6ONLY" rev="5">
+<attrib name="value" value="121"/></item>
+<item name="NUM_LUT_RT_DRIVES_CARRY4" rev="5">
+<attrib name="value" value="8"/></item>
+<item name="NUM_LUT_RT_EXO6" rev="5">
+<attrib name="value" value="8"/></item>
+<item name="NUM_LUT_RT_O6" rev="5">
+<attrib name="value" value="79"/></item>
+<item name="NUM_MMCME2_ADV" rev="5">
+<attrib name="value" value="1"/></item>
+<item name="NUM_RAMB36E1" rev="5">
+<attrib name="value" value="32"/></item>
+<item name="NUM_SLICEL" rev="5">
+<attrib name="value" value="79"/></item>
+<item name="NUM_SLICE_CARRY4" rev="5">
+<attrib name="value" value="29"/></item>
+<item name="NUM_SLICE_CONTROLSET" rev="5">
+<attrib name="value" value="9"/></item>
+<item name="NUM_SLICE_CYINIT" rev="5">
+<attrib name="value" value="337"/></item>
+<item name="NUM_SLICE_FF" rev="5">
+<attrib name="value" value="114"/></item>
+<item name="NUM_SLICE_UNUSEDCTRL" rev="5">
+<attrib name="value" value="42"/></item>
+<item name="NUM_UNUSABLE_FF_BELS" rev="5">
+<attrib name="value" value="46"/></item>
+</group>
+</DesignStatistics>
+<DeviceUsage TimeStamp="Tue Feb 11 00:30:37 2020"><group name="SiteSummary">
+<item name="BUFG" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
+<item name="BUFG_BUFG" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
+<item name="CARRY4" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="29"/></item>
+<item name="FF_INIT" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
+<item name="HARD0" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="8"/></item>
+<item name="IOB33" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="51"/></item>
+<item name="IOB33_INBUF_EN" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="18"/></item>
+<item name="IOB33_OUTBUF" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="33"/></item>
+<item name="LUT5" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="100"/></item>
+<item name="LUT6" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="229"/></item>
+<item name="MMCME2_ADV" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
+<item name="MMCME2_ADV_MMCME2_ADV" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
+<item name="PAD" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="51"/></item>
+<item name="RAMB36E1" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="32"/></item>
+<item name="RAMB36E1_RAMB36E1" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="32"/></item>
+<item name="REG_INIT" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="113"/></item>
+<item name="SLICEL" rev="6">
+<attrib name="total" value="1000000"/><attrib name="used" value="79"/></item>
+</group>
+</DeviceUsage>
+<ReportConfigData TimeStamp="Tue Feb 11 00:30:37 2020"><group name="REG_INIT">
+<item name="CK" rev="6">
+<attrib name="CK" value="113"/><attrib name="CK_INV" value="0"/></item>
+<item name="FFINIT" rev="6">
+<attrib name="INIT0" value="108"/><attrib name="INIT1" value="5"/></item>
+<item name="FFSR" rev="6">
+<attrib name="SRLOW" value="108"/><attrib name="SRHIGH" value="5"/></item>
+<item name="LATCH_OR_FF" rev="6">
+<attrib name="FF" value="113"/></item>
+<item name="SYNC_ATTR" rev="6">
+<attrib name="ASYNC" value="44"/><attrib name="SYNC" value="69"/></item>
+</group>
+<group name="SLICEL">
+<item name="CLK" rev="6">
+<attrib name="CLK" value="37"/><attrib name="CLK_INV" value="0"/></item>
+</group>
+<group name="MMCME2_ADV_MMCME2_ADV">
+<item name="BANDWIDTH" rev="6">
+<attrib name="OPTIMIZED" value="1"/></item>
+<item name="CLKBURST_ENABLE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKBURST_REPEAT" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBIN_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBIN_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKFBOUT_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBOUT_EN" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKFBOUT_FRAC_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBOUT_FRAC_WF_FALL" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBOUT_FRAC_WF_RISE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKFBOUT_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKFBOUT_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKINSEL" rev="6">
+<attrib name="CLKINSEL" value="1"/><attrib name="CLKINSEL_INV" value="0"/></item>
+<item name="CLKOUT0_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT0_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT0_FRAC_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT0_FRAC_WF_FALL" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT0_FRAC_WF_RISE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT0_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT0_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT1_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT1_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT1_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT1_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT2_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT2_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT2_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT2_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT3_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT3_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT3_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT3_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT4_CASCADE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT4_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT4_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT4_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT4_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT5_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT5_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT5_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT5_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT6_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT6_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="CLKOUT6_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="CLKOUT6_USE_FINE_PS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="COMPENSATION" rev="6">
+<attrib name="BUF_IN" value="1"/></item>
+<item name="DIRECT_PATH_CNTRL" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="DIVCLK_EDGE" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="DIVCLK_NOCOUNT" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="EN_VCO_DIV1" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="EN_VCO_DIV6" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="GTS_WAIT" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="HVLF_CNT_TEST_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="INTERP_TEST" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="IN_DLY_EN" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="LF_LOW_SEL" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="MMCM_EN" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="PERF0_USE_CLK" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="PERF1_USE_CLK" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="PERF2_USE_CLK" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="PERF3_USE_CLK" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="PSEN" rev="6">
+<attrib name="PSEN_INV" value="0"/><attrib name="PSEN" value="1"/></item>
+<item name="PSINCDEC" rev="6">
+<attrib name="PSINCDEC" value="1"/><attrib name="PSINCDEC_INV" value="0"/></item>
+<item name="PWRDWN" rev="6">
+<attrib name="PWRDWN_INV" value="0"/><attrib name="PWRDWN" value="1"/></item>
+<item name="RST" rev="6">
+<attrib name="RST" value="1"/><attrib name="RST_INV" value="0"/></item>
+<item name="SEL_HV_NMOS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SEL_LV_NMOS" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SEL_SLIPD" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SS_EN" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SS_MODE" rev="6">
+<attrib name="CENTER_HIGH" value="1"/></item>
+<item name="STARTUP_WAIT" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SUP_SEL_AREG" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="SUP_SEL_DREG" rev="6">
+<attrib name="FALSE" value="1"/></item>
+<item name="TMUX_MUX_SEL" rev="6">
+<attrib name="00" value="1"/></item>
+<item name="VLF_HIGH_DIS_B" rev="6">
+<attrib name="TRUE" value="1"/></item>
+<item name="VLF_HIGH_PWDN_B" rev="6">
+<attrib name="TRUE" value="1"/></item>
+</group>
+<group name="IOB33_INBUF_EN">
+<item name="IBUF_LOW_PWR" rev="6">
+<attrib name="TRUE" value="18"/></item>
+</group>
+<group name="MMCME2_ADV">
+<item name="CLKINSEL" rev="6">
+<attrib name="CLKINSEL" value="1"/><attrib name="CLKINSEL_INV" value="0"/></item>
+<item name="PSEN" rev="6">
+<attrib name="PSEN_INV" value="0"/><attrib name="PSEN" value="1"/></item>
+<item name="PSINCDEC" rev="6">
+<attrib name="PSINCDEC" value="1"/><attrib name="PSINCDEC_INV" value="0"/></item>
+<item name="PWRDWN" rev="6">
+<attrib name="PWRDWN_INV" value="0"/><attrib name="PWRDWN" value="1"/></item>
+<item name="RST" rev="6">
+<attrib name="RST" value="1"/><attrib name="RST_INV" value="0"/></item>
+</group>
+<group name="FF_INIT">
+<item name="CK" rev="6">
+<attrib name="CK" value="1"/><attrib name="CK_INV" value="0"/></item>
+<item name="FFINIT" rev="6">
+<attrib name="INIT1" value="1"/></item>
+<item name="FFSR" rev="6">
+<attrib name="SRHIGH" value="1"/></item>
+<item name="SYNC_ATTR" rev="6">
+<attrib name="SYNC" value="1"/></item>
+</group>
+<group name="RAMB36E1">
+<item name="CLKARDCLKL" rev="6">
+<attrib name="CLKARDCLKL" value="32"/><attrib name="CLKARDCLKL_INV" value="0"/></item>
+<item name="CLKARDCLKU" rev="6">
+<attrib name="CLKARDCLKU_INV" value="0"/><attrib name="CLKARDCLKU" value="32"/></item>
+<item name="CLKBWRCLKL" rev="6">
+<attrib name="CLKBWRCLKL_INV" value="0"/><attrib name="CLKBWRCLKL" value="32"/></item>
+<item name="CLKBWRCLKU" rev="6">
+<attrib name="CLKBWRCLKU" value="32"/><attrib name="CLKBWRCLKU_INV" value="0"/></item>
+<item name="ENARDENL" rev="6">
+<attrib name="ENARDENL_INV" value="0"/><attrib name="ENARDENL" value="32"/></item>
+<item name="ENARDENU" rev="6">
+<attrib name="ENARDENU_INV" value="0"/><attrib name="ENARDENU" value="32"/></item>
+<item name="ENBWRENL" rev="6">
+<attrib name="ENBWRENL" value="32"/><attrib name="ENBWRENL_INV" value="0"/></item>
+<item name="ENBWRENU" rev="6">
+<attrib name="ENBWRENU_INV" value="0"/><attrib name="ENBWRENU" value="32"/></item>
+<item name="REGCLKARDRCLKL" rev="6">
+<attrib name="REGCLKARDRCLKL_INV" value="0"/><attrib name="REGCLKARDRCLKL" value="32"/></item>
+<item name="REGCLKARDRCLKU" rev="6">
+<attrib name="REGCLKARDRCLKU" value="32"/><attrib name="REGCLKARDRCLKU_INV" value="0"/></item>
+<item name="REGCLKBL" rev="6">
+<attrib name="REGCLKBL_INV" value="0"/><attrib name="REGCLKBL" value="32"/></item>
+<item name="REGCLKBU" rev="6">
+<attrib name="REGCLKBU" value="32"/><attrib name="REGCLKBU_INV" value="0"/></item>
+<item name="RSTRAMARSTRAML" rev="6">
+<attrib name="RSTRAMARSTRAML_INV" value="0"/><attrib name="RSTRAMARSTRAML" value="32"/></item>
+<item name="RSTRAMARSTRAMU" rev="6">
+<attrib name="RSTRAMARSTRAMU" value="32"/><attrib name="RSTRAMARSTRAMU_INV" value="0"/></item>
+<item name="RSTRAMBL" rev="6">
+<attrib name="RSTRAMBL_INV" value="0"/><attrib name="RSTRAMBL" value="32"/></item>
+<item name="RSTRAMBU" rev="6">
+<attrib name="RSTRAMBU" value="32"/><attrib name="RSTRAMBU_INV" value="0"/></item>
+<item name="RSTREGARSTREGL" rev="6">
+<attrib name="RSTREGARSTREGL" value="32"/><attrib name="RSTREGARSTREGL_INV" value="0"/></item>
+<item name="RSTREGARSTREGU" rev="6">
+<attrib name="RSTREGARSTREGU_INV" value="0"/><attrib name="RSTREGARSTREGU" value="32"/></item>
+<item name="RSTREGBL" rev="6">
+<attrib name="RSTREGBL" value="32"/><attrib name="RSTREGBL_INV" value="0"/></item>
+<item name="RSTREGBU" rev="6">
+<attrib name="RSTREGBU" value="32"/><attrib name="RSTREGBU_INV" value="0"/></item>
+</group>
+<group name="RAMB36E1_RAMB36E1">
+<item name="CLKARDCLKL" rev="6">
+<attrib name="CLKARDCLKL" value="32"/><attrib name="CLKARDCLKL_INV" value="0"/></item>
+<item name="CLKARDCLKU" rev="6">
+<attrib name="CLKARDCLKU_INV" value="0"/><attrib name="CLKARDCLKU" value="32"/></item>
+<item name="CLKBWRCLKL" rev="6">
+<attrib name="CLKBWRCLKL_INV" value="0"/><attrib name="CLKBWRCLKL" value="32"/></item>
+<item name="CLKBWRCLKU" rev="6">
+<attrib name="CLKBWRCLKU" value="32"/><attrib name="CLKBWRCLKU_INV" value="0"/></item>
+<item name="DOA_REG" rev="6">
+<attrib name="0" value="32"/></item>
+<item name="DOB_REG" rev="6">
+<attrib name="0" value="32"/></item>
+<item name="ENARDENL" rev="6">
+<attrib name="ENARDENL_INV" value="0"/><attrib name="ENARDENL" value="32"/></item>
+<item name="ENARDENU" rev="6">
+<attrib name="ENARDENU_INV" value="0"/><attrib name="ENARDENU" value="32"/></item>
+<item name="ENBWRENL" rev="6">
+<attrib name="ENBWRENL" value="32"/><attrib name="ENBWRENL_INV" value="0"/></item>
+<item name="ENBWRENU" rev="6">
+<attrib name="ENBWRENU_INV" value="0"/><attrib name="ENBWRENU" value="32"/></item>
+<item name="EN_ECC_READ" rev="6">
+<attrib name="FALSE" value="32"/></item>
+<item name="EN_ECC_WRITE" rev="6">
+<attrib name="FALSE" value="32"/></item>
+<item name="EN_PWRGATE" rev="6">
+<attrib name="NONE" value="32"/></item>
+<item name="RAM_EXTENSION_A" rev="6">
+<attrib name="UPPER" value="16"/><attrib name="LOWER" value="16"/></item>
+<item name="RAM_EXTENSION_B" rev="6">
+<attrib name="UPPER" value="16"/><attrib name="LOWER" value="16"/></item>
+<item name="RAM_MODE" rev="6">
+<attrib name="TDP" value="32"/></item>
+<item name="RDADDR_COLLISION_HWCONFIG" rev="6">
+<attrib name="DELAYED_WRITE" value="32"/></item>
+<item name="READ_WIDTH_A" rev="6">
+<attrib name="1" value="32"/></item>
+<item name="READ_WIDTH_B" rev="6">
+<attrib name="1" value="32"/></item>
+<item name="REGCLKARDRCLKL" rev="6">
+<attrib name="REGCLKARDRCLKL_INV" value="0"/><attrib name="REGCLKARDRCLKL" value="32"/></item>
+<item name="REGCLKARDRCLKU" rev="6">
+<attrib name="REGCLKARDRCLKU" value="32"/><attrib name="REGCLKARDRCLKU_INV" value="0"/></item>
+<item name="REGCLKBL" rev="6">
+<attrib name="REGCLKBL_INV" value="0"/><attrib name="REGCLKBL" value="32"/></item>
+<item name="REGCLKBU" rev="6">
+<attrib name="REGCLKBU" value="32"/><attrib name="REGCLKBU_INV" value="0"/></item>
+<item name="RSTRAMARSTRAML" rev="6">
+<attrib name="RSTRAMARSTRAML_INV" value="0"/><attrib name="RSTRAMARSTRAML" value="32"/></item>
+<item name="RSTRAMARSTRAMU" rev="6">
+<attrib name="RSTRAMARSTRAMU" value="32"/><attrib name="RSTRAMARSTRAMU_INV" value="0"/></item>
+<item name="RSTRAMBL" rev="6">
+<attrib name="RSTRAMBL_INV" value="0"/><attrib name="RSTRAMBL" value="32"/></item>
+<item name="RSTRAMBU" rev="6">
+<attrib name="RSTRAMBU" value="32"/><attrib name="RSTRAMBU_INV" value="0"/></item>
+<item name="RSTREGARSTREGL" rev="6">
+<attrib name="RSTREGARSTREGL" value="32"/><attrib name="RSTREGARSTREGL_INV" value="0"/></item>
+<item name="RSTREGARSTREGU" rev="6">
+<attrib name="RSTREGARSTREGU_INV" value="0"/><attrib name="RSTREGARSTREGU" value="32"/></item>
+<item name="RSTREGBL" rev="6">
+<attrib name="RSTREGBL" value="32"/><attrib name="RSTREGBL_INV" value="0"/></item>
+<item name="RSTREGBU" rev="6">
+<attrib name="RSTREGBU" value="32"/><attrib name="RSTREGBU_INV" value="0"/></item>
+<item name="RSTREG_PRIORITY_A" rev="6">
+<attrib name="RSTREG" value="32"/></item>
+<item name="RSTREG_PRIORITY_B" rev="6">
+<attrib name="RSTREG" value="32"/></item>
+<item name="SAVEDATA" rev="6">
+<attrib name="FALSE" value="32"/></item>
+<item name="WRITE_MODE_A" rev="6">
+<attrib name="WRITE_FIRST" value="32"/></item>
+<item name="WRITE_MODE_B" rev="6">
+<attrib name="WRITE_FIRST" value="32"/></item>
+<item name="WRITE_WIDTH_A" rev="6">
+<attrib name="1" value="32"/></item>
+<item name="WRITE_WIDTH_B" rev="6">
+<attrib name="1" value="32"/></item>
+</group>
+</ReportConfigData>
+<ReportPinData TimeStamp="Tue Feb 11 00:30:37 2020"><group name="IOB33_OUTBUF">
+<item name="IN" rev="6">
+<attrib name="value" value="33"/></item>
+<item name="OUT" rev="6">
+<attrib name="value" value="33"/></item>
+</group>
+<group name="REG_INIT">
+<item name="CE" rev="6">
+<attrib name="value" value="67"/></item>
+<item name="CK" rev="6">
+<attrib name="value" value="113"/></item>
+<item name="D" rev="6">
+<attrib name="value" value="113"/></item>
+<item name="Q" rev="6">
+<attrib name="value" value="113"/></item>
+<item name="SR" rev="6">
+<attrib name="value" value="69"/></item>
+</group>
+<group name="SLICEL">
+<item name="A" rev="6">
+<attrib name="value" value="17"/></item>
+<item name="A1" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="A2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="A3" rev="6">
+<attrib name="value" value="41"/></item>
+<item name="A4" rev="6">
+<attrib name="value" value="48"/></item>
+<item name="A5" rev="6">
+<attrib name="value" value="63"/></item>
+<item name="A6" rev="6">
+<attrib name="value" value="71"/></item>
+<item name="AMUX" rev="6">
+<attrib name="value" value="27"/></item>
+<item name="AQ" rev="6">
+<attrib name="value" value="33"/></item>
+<item name="AX" rev="6">
+<attrib name="value" value="4"/></item>
+<item name="B" rev="6">
+<attrib name="value" value="7"/></item>
+<item name="B1" rev="6">
+<attrib name="value" value="8"/></item>
+<item name="B2" rev="6">
+<attrib name="value" value="22"/></item>
+<item name="B3" rev="6">
+<attrib name="value" value="29"/></item>
+<item name="B4" rev="6">
+<attrib name="value" value="33"/></item>
+<item name="B5" rev="6">
+<attrib name="value" value="50"/></item>
+<item name="B6" rev="6">
+<attrib name="value" value="55"/></item>
+<item name="BMUX" rev="6">
+<attrib name="value" value="28"/></item>
+<item name="BQ" rev="6">
+<attrib name="value" value="26"/></item>
+<item name="BX" rev="6">
+<attrib name="value" value="3"/></item>
+<item name="C" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="C1" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="C2" rev="6">
+<attrib name="value" value="17"/></item>
+<item name="C3" rev="6">
+<attrib name="value" value="23"/></item>
+<item name="C4" rev="6">
+<attrib name="value" value="28"/></item>
+<item name="C5" rev="6">
+<attrib name="value" value="43"/></item>
+<item name="C6" rev="6">
+<attrib name="value" value="48"/></item>
+<item name="CE" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="CIN" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="CLK" rev="6">
+<attrib name="value" value="37"/></item>
+<item name="CMUX" rev="6">
+<attrib name="value" value="22"/></item>
+<item name="COUT" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="CQ" rev="6">
+<attrib name="value" value="27"/></item>
+<item name="CX" rev="6">
+<attrib name="value" value="3"/></item>
+<item name="D" rev="6">
+<attrib name="value" value="6"/></item>
+<item name="D1" rev="6">
+<attrib name="value" value="8"/></item>
+<item name="D2" rev="6">
+<attrib name="value" value="20"/></item>
+<item name="D3" rev="6">
+<attrib name="value" value="29"/></item>
+<item name="D4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="D5" rev="6">
+<attrib name="value" value="47"/></item>
+<item name="D6" rev="6">
+<attrib name="value" value="53"/></item>
+<item name="DMUX" rev="6">
+<attrib name="value" value="24"/></item>
+<item name="DQ" rev="6">
+<attrib name="value" value="27"/></item>
+<item name="DX" rev="6">
+<attrib name="value" value="2"/></item>
+<item name="SR" rev="6">
+<attrib name="value" value="21"/></item>
+</group>
+<group name="BUFG_BUFG">
+<item name="I0" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="O" rev="6">
+<attrib name="value" value="5"/></item>
+</group>
+<group name="MMCME2_ADV_MMCME2_ADV">
+<item name="CLKFBIN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKFBOUT" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKIN1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKIN2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKINSEL" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKOUT0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKOUT1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR3" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR4" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR5" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR6" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DCLK" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DEN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI10" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI11" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI12" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI13" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI14" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI15" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI3" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI4" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI5" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI6" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI7" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI8" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI9" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DWE" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSCLK" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSEN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSINCDEC" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PWRDWN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="RST" rev="6">
+<attrib name="value" value="1"/></item>
+</group>
+<group name="PAD">
+<item name="PAD" rev="6">
+<attrib name="value" value="51"/></item>
+</group>
+<group name="IOB33_INBUF_EN">
+<item name="OUT" rev="6">
+<attrib name="value" value="18"/></item>
+<item name="PAD" rev="6">
+<attrib name="value" value="18"/></item>
+</group>
+<group name="MMCME2_ADV">
+<item name="CLKFBIN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKFBOUT" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKIN1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKIN2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKINSEL" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKOUT0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="CLKOUT1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR3" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR4" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR5" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DADDR6" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DCLK" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DEN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI0" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI1" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI10" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI11" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI12" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI13" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI14" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI15" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI2" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI3" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI4" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI5" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI6" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI7" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI8" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DI9" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="DWE" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSCLK" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSEN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PSINCDEC" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="PWRDWN" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="RST" rev="6">
+<attrib name="value" value="1"/></item>
+</group>
+<group name="CARRY4">
+<item name="CIN" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="CO3" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="CYINIT" rev="6">
+<attrib name="value" value="8"/></item>
+<item name="DI0" rev="6">
+<attrib name="value" value="26"/></item>
+<item name="DI1" rev="6">
+<attrib name="value" value="25"/></item>
+<item name="DI2" rev="6">
+<attrib name="value" value="24"/></item>
+<item name="DI3" rev="6">
+<attrib name="value" value="21"/></item>
+<item name="O0" rev="6">
+<attrib name="value" value="29"/></item>
+<item name="O1" rev="6">
+<attrib name="value" value="26"/></item>
+<item name="O2" rev="6">
+<attrib name="value" value="25"/></item>
+<item name="O3" rev="6">
+<attrib name="value" value="24"/></item>
+<item name="S0" rev="6">
+<attrib name="value" value="29"/></item>
+<item name="S1" rev="6">
+<attrib name="value" value="26"/></item>
+<item name="S2" rev="6">
+<attrib name="value" value="25"/></item>
+<item name="S3" rev="6">
+<attrib name="value" value="24"/></item>
+</group>
+<group name="LUT5">
+<item name="A1" rev="6">
+<attrib name="value" value="2"/></item>
+<item name="A2" rev="6">
+<attrib name="value" value="6"/></item>
+<item name="A3" rev="6">
+<attrib name="value" value="12"/></item>
+<item name="A4" rev="6">
+<attrib name="value" value="13"/></item>
+<item name="A5" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="O5" rev="6">
+<attrib name="value" value="100"/></item>
+</group>
+<group name="LUT6">
+<item name="A1" rev="6">
+<attrib name="value" value="36"/></item>
+<item name="A2" rev="6">
+<attrib name="value" value="87"/></item>
+<item name="A3" rev="6">
+<attrib name="value" value="112"/></item>
+<item name="A4" rev="6">
+<attrib name="value" value="140"/></item>
+<item name="A5" rev="6">
+<attrib name="value" value="203"/></item>
+<item name="A6" rev="6">
+<attrib name="value" value="227"/></item>
+<item name="O6" rev="6">
+<attrib name="value" value="229"/></item>
+</group>
+<group name="IOB33">
+<item name="I" rev="6">
+<attrib name="value" value="18"/></item>
+<item name="O" rev="6">
+<attrib name="value" value="33"/></item>
+<item name="PAD" rev="6">
+<attrib name="value" value="51"/></item>
+</group>
+<group name="FF_INIT">
+<item name="CK" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="D" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="Q" rev="6">
+<attrib name="value" value="1"/></item>
+<item name="SR" rev="6">
+<attrib name="value" value="1"/></item>
+</group>
+<group name="RAMB36E1">
+<item name="ADDRARDADDRL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL15" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL15" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CASCADEINA" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEINB" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEOUTA" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEOUTB" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CLKARDCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKARDCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKBWRCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKBWRCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DIADI0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DIADI1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DOBDO0" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="ENARDENL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENARDENU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENBWRENL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENBWRENU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEAREGCEL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEAREGCEU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKARDRCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKARDRCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMARSTRAML" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMARSTRAMU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGARSTREGL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGARSTREGU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU7" rev="6">
+<attrib name="value" value="32"/></item>
+</group>
+<group name="HARD0">
+<item name="0" rev="6">
+<attrib name="value" value="8"/></item>
+</group>
+<group name="BUFG">
+<item name="I0" rev="6">
+<attrib name="value" value="5"/></item>
+<item name="O" rev="6">
+<attrib name="value" value="5"/></item>
+</group>
+<group name="RAMB36E1_RAMB36E1">
+<item name="ADDRARDADDRL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL15" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRL9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRARDADDRU9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL15" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRL9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU10" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU11" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU12" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU13" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU14" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU8" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ADDRBWRADDRU9" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CASCADEINA" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEINB" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEOUTA" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CASCADEOUTB" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="CLKARDCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKARDCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKBWRCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="CLKBWRCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DIADI0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DIADI1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="DOBDO0" rev="6">
+<attrib name="value" value="16"/></item>
+<item name="ENARDENL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENARDENU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENBWRENL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="ENBWRENU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEAREGCEL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEAREGCEU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCEBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKARDRCLKL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKARDRCLKU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="REGCLKBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMARSTRAML" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMARSTRAMU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTRAMBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGARSTREGL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGARSTREGU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGBL" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="RSTREGBU" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEAU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEL7" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU0" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU1" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU2" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU3" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU4" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU5" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU6" rev="6">
+<attrib name="value" value="32"/></item>
+<item name="WEBWEU7" rev="6">
+<attrib name="value" value="32"/></item>
+</group>
+</ReportPinData>
+<CmdHistory>
+</CmdHistory>
+</DeviceUsageSummary>

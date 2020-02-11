@@ -1,0 +1,18 @@
+xst -intstyle ise -ifn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.xst" -ofn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc src/Nexys4_Master.ucf -p xc7a100t-csg324-3 test_cam.ngc test_cam.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o test_cam_map.ncd test_cam.ngd test_cam.pcf 
+par -w -intstyle ise -ol high -mt off test_cam_map.ncd test_cam.ncd test_cam.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml test_cam.twx test_cam.ncd -o test_cam.twr test_cam.pcf 
+bitgen -intstyle ise -f test_cam.ut test_cam.ncd 
+xst -intstyle ise -ifn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.xst" -ofn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc src/Nexys4_Master.ucf -p xc7a100t-csg324-3 test_cam.ngc test_cam.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o test_cam_map.ncd test_cam.ngd test_cam.pcf 
+par -w -intstyle ise -ol high -mt off test_cam_map.ncd test_cam.ncd test_cam.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml test_cam.twx test_cam.ncd -o test_cam.twr test_cam.pcf 
+bitgen -intstyle ise -f test_cam.ut test_cam.ncd 
+xst -intstyle ise -ifn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.xst" -ofn "/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/test_cam.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc src/Nexys4_Master.ucf -p xc7a100t-csg324-3 test_cam.ngc test_cam.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o test_cam_map.ncd test_cam.ngd test_cam.pcf 
+par -w -intstyle ise -ol high -mt off test_cam_map.ncd test_cam.ncd test_cam.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml test_cam.twx test_cam.ncd -o test_cam.twr test_cam.pcf 
+bitgen -intstyle ise -f test_cam.ut test_cam.ncd 

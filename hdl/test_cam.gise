@@ -22,9 +22,166 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="test_cam.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="test_cam.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="test_cam.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="test_cam.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="test_cam.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="test_cam.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="test_cam.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="test_cam.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="test_cam.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="test_cam.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="test_cam.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="test_cam.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="test_cam.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="test_cam.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_cam.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="test_cam.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="test_cam.stx"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="test_cam.sym" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="test_cam.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="test_cam.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="test_cam.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="test_cam.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="test_cam.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="test_cam.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="test_cam.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="test_cam_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="test_cam_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="test_cam_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="test_cam_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="test_cam_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="test_cam_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="test_cam_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="test_cam_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="test_cam_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="test_cam_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="test_cam_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="test_cam_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="test_cam_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="test_cam_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="test_cam_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-5362961998972662235" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1119751708929459667" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="5991799297889344583" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398896" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="4183989441838369975" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398924" xil_pn:in_ck="6140412647143352639" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="7311333008293208716" xil_pn:start_ts="1581398896">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="test_cam.lso"/>
+      <outfile xil_pn:name="test_cam.ngc"/>
+      <outfile xil_pn:name="test_cam.ngr"/>
+      <outfile xil_pn:name="test_cam.prj"/>
+      <outfile xil_pn:name="test_cam.stx"/>
+      <outfile xil_pn:name="test_cam.syr"/>
+      <outfile xil_pn:name="test_cam.xst"/>
+      <outfile xil_pn:name="test_cam_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398924" xil_pn:in_ck="7741436095548868057" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="4784894219589610610" xil_pn:start_ts="1581398924">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398934" xil_pn:in_ck="3330432229120014671" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8375198647032330910" xil_pn:start_ts="1581398924">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="test_cam.bld"/>
+      <outfile xil_pn:name="test_cam.ngd"/>
+      <outfile xil_pn:name="test_cam_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1581398967" xil_pn:in_ck="3330432229120014672" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1581398934">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="test_cam.pcf"/>
+      <outfile xil_pn:name="test_cam_map.map"/>
+      <outfile xil_pn:name="test_cam_map.mrp"/>
+      <outfile xil_pn:name="test_cam_map.ncd"/>
+      <outfile xil_pn:name="test_cam_map.ngm"/>
+      <outfile xil_pn:name="test_cam_map.xrpt"/>
+      <outfile xil_pn:name="test_cam_summary.xml"/>
+      <outfile xil_pn:name="test_cam_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1581399001" xil_pn:in_ck="-2854029628383235991" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1581398967">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="test_cam.ncd"/>
+      <outfile xil_pn:name="test_cam.pad"/>
+      <outfile xil_pn:name="test_cam.par"/>
+      <outfile xil_pn:name="test_cam.ptwx"/>
+      <outfile xil_pn:name="test_cam.unroutes"/>
+      <outfile xil_pn:name="test_cam.xpi"/>
+      <outfile xil_pn:name="test_cam_pad.csv"/>
+      <outfile xil_pn:name="test_cam_pad.txt"/>
+      <outfile xil_pn:name="test_cam_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1581399039" xil_pn:in_ck="6023078477744547187" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="306664139534459597" xil_pn:start_ts="1581399001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="test_cam.bgn"/>
+      <outfile xil_pn:name="test_cam.bit"/>
+      <outfile xil_pn:name="test_cam.drc"/>
+      <outfile xil_pn:name="test_cam.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1581399001" xil_pn:in_ck="3330432229120014540" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1581398988">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="test_cam.twr"/>
+      <outfile xil_pn:name="test_cam.twx"/>
+    </transform>
+  </transforms>
 
 </generated_project>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2020-02-09T12:45:07</DateModified>
+  <DateModified>2020-02-11T00:20:35</DateModified>
   <ModuleName>test_cam</ModuleName>
   <SummaryTimeStamp>2019-11-04T13:15:59</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/UECCI/Documents/GitHub/digital1/work04-EntregaFinal/hdl/iseconfig/test_cam.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/UECCI/Documents/GitHub/digital1/work04-EntregaFinal/hdl\</ImplementationReportsDirectory>
+  <SavedFilePath>/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/iseconfig/test_cam.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/elizabeth/work04-proyectofinal-grupo-05-1/hdl/</ImplementationReportsDirectory>
   <DateInitialized>2019-11-04T13:14:13</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
