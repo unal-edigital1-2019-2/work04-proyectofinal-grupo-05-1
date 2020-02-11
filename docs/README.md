@@ -192,3 +192,9 @@ La simulación de la captura de datos, explicada anteriormente, arrojo la siguie
 	
 	Imagen prueba simulación de captura de datos
 
+Para este punto sabíamos que la conformación del pixel era correcta, así que se procedió con demás pruebas. Las siguientes pruebas fueron los contadores de líneas (HREF) y de pixeles existentes, tanto por línea como en general y la simulación de captura de datos, pero esta vez con columnas de varios colores. La simulación nos arrojó las siguientes barras
+
+	Imagen prueba simulación de colores - barras
+De la imagen se puede deducir que hay cierto desfase, que las líneas no son completamente horizontales y que se están almacenando en posiciones incorrectas. Este hallazgo nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo. Para salir de esta duda, se desarrollaron los contadores mencionados anteriormente, el de HREF, pixeles totales y por línea. Estas pruebas nos permitieron saber el formato verdadero en el que la cámara estaba enviando la información y así encontrar el error en el código para su debida corrección.
+
+
