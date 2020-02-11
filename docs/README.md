@@ -27,7 +27,7 @@ Figura []. Diagrama estructural de la captura de datos
 ![d_funcional_ram](./figs/Diagrama_funcional_ram.png)
 Figura []. Diagrama funcional del buffer de la memoria RAM
 
-![d_funcional_VGA](./figs/Diagrama_Diagrama_funcional_VGA.png)
+![d_funcional_VGA](./figs/Diagrama_funcional_VGA.png)
 Figura []. Diagrama funcional del buffer de la memoria RAM
 
 
@@ -36,7 +36,7 @@ Figura []. Diagrama funcional del buffer de la memoria RAM
 Para determinar el tamaño máximo del buffer de memoria RAM que se puede crear con la FPGA, en este caso la Nexys 4 DDR, primero se revisó el datasheet y se encontró que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
 
 
-Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato del pixel con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final.El formato de imagen escogido es el RGB 332, en donde cada píxel necesita 8 bits, es decir, cada pixel está conformado por 1 byte. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
+Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato del pixel con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final. El formato de imagen escogido es el RGB 332, en donde cada pixel necesita 8 bits, es decir, cada pixel está conformado por 1 byte. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
 
 
 ![ancho_registro](./figs/Ancho_registro.PNG)
@@ -168,4 +168,14 @@ Observamos que los valores ingresados sean correctos.
 
 Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaza en la carpeta /hdl/src/PLL, teniendo cuidado de también reemplazar el nombre del módulo en test_cam.v.
 
+
+## Simulación de la cámara
+
+Se realizó la simulación de la cámara con el fin de observar su funcionamiento, sin tener la incertidumbre si se tiene incorrecta la captura de datos o la configuración de la cámara con Arduino.
+
+Para esto primero se realiza la simulación sin implementar el fichero ***cam_read.v***, como se observa, la simulación muestra dos pantallas, ambas con un cuadro de líneas azules y rosadas, tal como se ve en una pantalla VGA cuando no se conecta una cámara. Esto se debe a que es el valor con el que se inicializó la memoria RAM en el módulo ***buffer_ram_dp.v***.
+
+![Fig.1](./figs/simulacion_inicial.png)
+
+Luego se realizan las pruebas usando el módulo diseñado ***cam_read.v***
 
