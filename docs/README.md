@@ -1,30 +1,77 @@
+# Cámara digital
 ## GRUPO DE TRABAJO 05
 
 ## INTEGRANTES DEL GRUPO
-#### Jhohan David Contreras Aragón		1007687796
-#### Andrés Felipe Medina Medina 		1015464557
-#### Mitchell Elizabeth Rodríguez Barreto	1032503089
+#### Jhohan David Contreras Aragón - 1007687796
+#### Andrés Felipe Medina Medina - 1015464557
+#### Mitchell Elizabeth Rodríguez Barreto - 1032503089
+
+## Objetivos
+
+## Introducción
+
+## Identificación del problema
+
+## Módulos de la cámara
+
+Para realizar la implementación de la cámara digital se usó el módulo principal brindado en [work02-captura-datos-0v7670-grupo-05](https://github.com/unal-edigital1-2019-2/work02-captura-datos-OV7670/tree/master/hdl/src) llamado ***test_cam.v*** en el cual:
+
+* Se instanciaron los módulos ***clk24_25_nexys4.v***, ***cam_read.v***, ***buffer_ram_dp.v*** y ***VGA_driver.v*** (algunos brindados en el mismo repositorio). 
+
+![Imagen 1][1]  ![Imagen 2][2]
+
+ [1]: ./figs/instancia_reloj.jpeg
+ [2]: ./figs/instancia_camRead.jpeg
+
+Figura []. Instancia de los módulos ***clk24_25_nexys4.v*** y ***cam_read.v***.
+
+![Imagen 3][3]  ![Imagen 4][4]
+
+ [3]: ./figs/instancia_bufferRAM.jpeg
+ [4]: ./figs/instancia_VGAdriver.jpeg
+
+Figura []. Instancia de los módulos ***buffer_ram_dp.v*** y ***VGA_driver.v***.
+
+* Se realizó la lógica combinacional para obtener *DP_RAM_addr_out* a partir de la posición del píxel en la pantalla.
+
+![addr_out](./figs/addr_out.jpeg)
+
+Figura []. Dirección DP_RAM_addr_out a partir de la dirección en la pantalla.
+
+* Se realizó la lógica combinacional para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla. Para hacer dicha conversión se añadieron ceros en las cifras menos significativas faltantes, es decir, para el rojo y el verde sólo se agregó un cero para completar los 4 y en el azul dos ceros.
+
+![RGB332_444](./figs/RGB332_RGB444.jpeg)
+
+Figura []. Conversión de RGB332 a RGB444.
+
+Además se realizaron algunos cambios en este módulo, se colocó como ancho de la imagen 320 píxeles y 240 píxeles de alto y se modificó la cantidad de bits de la dirección a 17. La razón de seleccionar estos valores se explicará más adelante.
+
+![RGB332_444](./figs/parametros_foto.jpeg)
+
+Figura []. Parámetros modificados.
+
+En la siguiente figura se pueden observar las entradas, salidas e interconexiones entre los módulos, los puntos verdes que se presentan en algunas entradas hace referencia a que son enviadas desde la FPGA.
 
 ![d_estructural](./figs/Diagrama_estructural_todo.png)
+
 Figura []. Diagrama estructural de toda la descripción del hardware de la cámara
 
+### Memoria RAM (***buffer_ram_dp.v***)
 
-![conexiones](./figs/Diagconexiones.png)
-Figura []. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
+---
 
-## Máxima memoria RAM
+#### Máxima memoria RAM
 
-Para determinar el tamaño máximo del buffer de memoria RAM que se puede crear con la FPGA, en este caso la Nexys 4 DDR, primero se revisó el datasheet y se encontró que el valor de bloque de memoria RAM en la FPGA es de *4.860.000 bits*.
+Para diseñar la memoria RAM que almacenará los datos de la cámara y permitirá su visualización se debe primero determinar el tamaño máximo del buffer de memoria RAM que se puede crear con la FPGA, en este caso la *Artix-7* (XC7A100T-1CSG324C) de la tarjeta *Nexys 4 DDR*, para ello se revisó el datasheet y se encontró que el valor de bloque de memoria RAM en la FPGA es de *4.860.000 bits*.
 
-
-Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato del píxel con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada píxel para conformar la imagen final. El formato de imagen escogido es el RGB 332, en donde cada píxel necesita 8 bits, es decir, cada píxel está conformado por 1 byte. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
-
+Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato del píxel con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada píxel para conformar la imagen final. El formato de imagen escogido es el RGB332, en donde cada píxel necesita 8 bits para almacenar los datos, es decir, cada píxel está conformado por 1 byte. Por lo tanto, el tamaño de la RAM se define de la siguiente manera:
 
 ![ancho_registro](./figs/Ancho_registro.PNG)
+
 Figura []. Tamaño del registro
 
+En donde cada fila es un píxel, por ende, la altura está definida por la cantidad de píxeles que hay en la imagen y la cantidad de columnas representa la cantidad de bits por píxel, en este caso 8.
 
-En donde cada fila es un píxel, por ende, la altura está definida por la cantidad de píxeles que hay en la imagen y la cantidad de columnas representa la cantidad de bits por píxel en este caso 8.
 * Para una imagen de *640 x 480 píxeles* el número de posiciones en una memoria está dado por *2^n*, en éste caso, como el número de píxeles a usar es de *640 x 480 = 307.200*, se busca un exponente tal que 2 elevado a ese exponente sea mayor o igual a 307.200. Para encontrar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y como el exponente debe ser entero, ya que es la altura de una matriz, se redondea el resultado al entero mayor más cercano.
 
 ![eq1](./figs/eq1.png)
@@ -33,42 +80,52 @@ El tamaño en bits de la memoria RAM sería el número de posiciones por el anch
 
 ![eq2](./figs/eq2.png)
 
-Como se puede observar el número de bits es cercano al máximo permitido en la tarjeta más es conveniente alejarse de ese valor ya que la memoria no puede llegar a llenarse y hacer que deje de funcionar correctamente la FPGA.
+Como se puede observar el número de bits es cercano al máximo permitido en la tarjeta, más es conveniente alejarse de ese valor ya que la memoria no puede llegar a llenarse y hacer que deje de funcionar correctamente la FPGA.
 
 *	Para una imagen de *320 x 240 píxeles.* 
-Se decide recortar el tamaño de la imagen para que no exceda la capacidad de la FPGA, se escala por un factor de 2, por lo que la nueva imagen es ahora 1/4 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones, o píxeles, totales es de *320 x 240 = 76.800*. Se hace el mismo procedimiento y se encuentra que el exponente de 2 más cercano que almacena esta cantidad de píxeles es:
+Se decide recortar el tamaño de la imagen para que no exceda la capacidad de la FPGA, se escala por un factor de 2, por lo que la nueva imagen es ahora 1/4 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones o píxeles totales es de *320 x 240 = 76.800*. Se hace el mismo procedimiento y se encuentra que el exponente de 2 más cercano que almacena esta cantidad de píxeles es:
 
 ![eq3](./figs/eq3.png)
 
+Como se puede observar el tamaño en bits de la memoria RAM para una imagen de *320 x 240 píxeles* ocuparía el *21,57 %* de la memoria disponible en la FPGA, por lo tanto, se decide usar *17* como la cantidad de bits de la dirección. El tamaño total en bytes sería de 131.072.
 
-Como se puede observar el tamaño en bits de la memoria RAM para una imagen de *320 x 240 píxeles* ocuparía el *21,57 %* de la memoria disponible en la FPGA, por lo tanto, se decide usar este tamaño. El tamaño en bytes sería de 131.072.
+---
 
-## Memoria RAM (***buffer_ram_dp.v***)
+Como se mencionó anteriormente, para la creación del buffer de memoria la cantidad de bits de la dirección es de *AW = 17* y la cantidad de bits de cada pixel es de *DW = 8*. Además, para inicializar la memoria se importó como parámetro el archivo *image.men* para luego precargarlo en la memoria, dicho archivo contiene valores hexadecimales para la creación de líneas horizontales azules claras y rojas. 
 
-Para la creación del buffer de memoria se tuvieron en cuenta los parámetros encontrados anteriormente, como los son la cantidad de bits de la dirección (*AW = 15*) y la cantidad de bits de los datos (*DW = 8*). Además, se exportó como parámetro el archivo *image.men* que contiene valores hexadecimales para la creación de líneas horizontales azules claras y rojas que luego serán precargadas en la memoria RAM para inicializarla. Se tomaron como valores de entrada y salida los siguientes:
+Las entradas y salidas tomadas para éste módulo fueron las siguientes:
 
 #### Entradas:
-* *clk_w:* Reloj para la escritura de los datos, en este caso la señal *PCLK* que envía la cámara.
-* *addr_in [14:0]:* La dirección de entrada en la cual serán guardados los datos.
-* *data_in [7:0]:* El dato de entrada, es decir, el píxel en formato RGB 332.
+* *clk_w:* Reloj para la escritura de los datos, en este caso es la señal *PCLK* que envía la cámara.
+* *addr_in [14:0]:* La dirección de entrada en la cual serán guardados los datos en la memoria.
+* *data_in [7:0]:* El dato de entrada, es decir, el píxel en formato RGB332.
 * *regwrite:* Señal que controla cuando se escribe en la memoria RAM.
 * *clk_r:* Reloj para la lectura de los datos, en este caso es *25 MHz* la misma frecuencia a la que operan las pantallas VGA.
 * *addr_out [14:0]:* La dirección del dato que debe leer en la memoria para mostrarlo en pantalla.
 
 #### Salidas:
-* *data_out [7:0]:* El dato que debe mostrar según la dirección brindada.
+* *data_out [7:0]:* El dato que debe ser enviada a la pantalla según la dirección brindada.
 
 
 ![bufferRAM1](./figs/bufferRAM1.jpg)
 
-Se define un parámetro local para realizar el cálculo de la cantidad de bits de la dirección *2^AW = 2^15*, se crea la RAM tomando como “ancho” de registro 8 bits y un “alto” de 32.768 posiciones.
+Figura []. Declaración del módulo.
+
+Se define un parámetro local para realizar el cálculo de la cantidad de bits de la dirección *2^AW = 2^17*, se crea la RAM tomando como “ancho” de registro 8 bits y un “alto” de 32.768 posiciones.
 
 Para la escritura de los datos se tuvo en cuenta que siempre estuviera en los flancos de subida del reloj de escritura (*PCLK*) y que *regwrite* fuera igual a 1. El píxel *data_in* se guarda en la posición *addr_in*.
 
-La lectura de los datos se sincronizó con el reloj de *25 MHz* y asigna a *data_out* el valor en la posición de memoria *addr_out*. Se inicializa la RAM como se había dicho anteriormente y la última posición se hace igual a cero.
-
+La lectura de los datos se sincronizó con el reloj de *25 MHz* y asignó a *data_out* el valor en la posición de memoria *addr_out*. Se inicializa la RAM como se había dicho anteriormente y la última posición se hace igual a cero.
 
 ![bufferRAM2](./figs/bufferRAM2.jpg)
+
+Figura []. Memoria RAM, lectura y escritura.
+
+En la siguiente figura se puede observar el diagrama funcional del módulo:
+
+![d_funcional_ram](./figs/Diagrama_funcional_ram.png)
+
+Figura []. Diagrama funcional del buffer de memoria RAM.
 
 Se realizó una simulación para comprobar que la memoria RAM responda a los estímulos de lectura y escritura correctamente.
 
@@ -84,17 +141,14 @@ Y finalmente la lectura de los datos añadidos anteriormente.
 
 ![Lectura2](./figs/lecturaDos.jpg)
 
-![d_funcional_ram](./figs/Diagrama_funcional_ram.png)
-Figura []. Diagrama funcional del buffer de la memoria RAM
+ 
+### Captura de datos y downsampling (***cam_read.v***)
 
-## Captura de datos y downsampling (***cam_read.v***)
+---
 
 Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un píxel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, escogemos únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) escogemos los 3 y 2 bits más significativos correspondientemente, como se muestra a continuación.
 
-
 ![Lectura1](./figs/downsampling.png)
-
-
 
 Para ello se crearon variables auxiliares internas:
 * *[AW-1:0] mem_px_addr:* Este registro da la dirección en memoria en donde los bits del píxel  serán guardados después del downsampling. 
@@ -128,12 +182,16 @@ Figura []. Diagrama funcional del módulo diseñado *cam_read.v*
 ![d_estructural_captura](./figs/estructural_captura.png)
 Figura []. Diagrama estructural de la captura de datos
 
-## Controlador de la pantalla VGA (***VGA_driver.v***)
+### Controlador de la pantalla VGA (***VGA_driver.v***)
+
+---
 
 ![d_funcional_VGA](./figs/Diagrama_funcional_VGA.png)
 Figura []. Diagrama funcional del controlador de la pantalla VGA
 
-## Divisor de frecuencias - Reloj (***clk24_25_nexys4.v***)
+### Divisor de frecuencias - Reloj (***clk24_25_nexys4.v***)
+
+---
 
 Se hizo la actualización del archivo "clk_32MHZ_to_25M_24M.v" de acuerdo a las especificaciones de la FPGA Nexys 4DDR. El archivo nuevo "clk24_25_nexys4.v" está en la carpeta /hdl/src/PLL/clk24_25_nexys4.v
 
@@ -183,6 +241,9 @@ Para esto primero se realiza la simulación sin implementar el fichero ***cam_re
 Luego se realizan las pruebas usando el módulo diseñado ***cam_read.v***
 
 ## Línea del tiempo
+
+![conexiones](./figs/Diagconexiones.png)
+Figura []. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
 Antes de que se trabajara con una máquina de estados que nos permitiera capturar la información de los píxeles que nos enviaba la cámara, se trabajó con una serie de condicionales anidados según los estados actuales y pasados de las señales base (VSYNC, HREF y PCLK). Esta forma de acercamiento no es recomendable ya que se complica establecer procesos que tengan una mayor prioridad en cierta parte del proceso, es difícil saber en cuál condicional ejecutó el programa ya que las señales experimentalmente no siempre son iguales a como se describen en el Datasheet. En este punto lo que se buscaba era que se pudiese visualizar las barras horizontales de colores que fueron cargadas inicialmente en la memoria sin haber conectado la cámara, y cuando se conectase la cámara ver video. Las imágenes que obtuvimos fueron las siguientes:
 
