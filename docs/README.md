@@ -21,6 +21,16 @@ Figura []. Estados según las señales enviadas por la cámara
 ![conexiones](./figs/Diagconexiones.png)
 Figura []. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
+![d_estructural_captura](./figs/estructural_captura.png)
+Figura []. Diagrama estructural de la captura de datos
+
+![d_funcional_ram](./figs/Diagrama_funcional_ram.png)
+Figura []. Diagrama funcional del buffer de la memoria RAM
+
+![d_funcional_VGA](./figs/Diagrama_Diagrama_funcional_VGA.png)
+Figura []. Diagrama funcional del buffer de la memoria RAM
+
+
 ## Máxima memoria RAM
 
 Para determinar el tamaño máximo del buffer de memoria RAM que se puede crear con la FPGA, en este caso la Nexys 4 DDR, primero se revisó el datasheet y se encontró que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
@@ -30,6 +40,7 @@ Para calcular el número de bits que va a ocupar la memoria se debe tener en cue
 
 
 ![ancho_registro](./figs/Ancho_registro.PNG)
+Figura []. Tamaño del registro
 
 
 En donde cada fila es un pixel, por ende la altura está definida por la cantidad de pixeles que hay en la imagen y la cantidad de columnas representa la cantidad de bits por pixel en este caso 8.
