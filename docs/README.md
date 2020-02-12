@@ -315,6 +315,33 @@ Para esto primero se realiza la simulación sin implementar el fichero ***cam_re
 
 Luego se realizan las pruebas usando el módulo diseñado ***cam_read.v***
 
+## Configuración  Arduino
+Para realizar la configuración de la cámara por medio del arduino a través de comunicación por I2C se debe leer el datasheet de la cámara para poder editar los registros y así lograr la configuración deseada, cabe resaltar que cámara para poder funcionar con la configuración deseada debe estar siempre conectada al arduino  y tanto la cámara como la FPGA y el arduino deben estar conectados a una tierra común si no tampoco funciona.
+
+Primero definimos la dirección del bus de comunicación I2C de la cámara y configuramos las funciones de lectura y escritura desde y hacia la cámara de los registros a configurar además de una función para editar y otra para leer los valores de los registros.
+
+ ![ard1](./figs/ard1.png)
+
+
+![ard2](./figs/ard2.png)
+
+
+Después se empieza con la configuración de los registros, en primer lugar configuramos los parámetros que dan el funcionamiento a la cámara, el COM07 con la entrada 0x80 para reiniciar los registros a sus valores por defecto, le dejamos un  delay de tiempo y seguimos configurando los demás registros primero configuramos el registro COM07 y el COM15 con el valor 0x24  y 0xD0 respectivamente habilitando la salida de pixeles en formato CIF y RGB565, en segundo lugar el registro CLKR que habilita el uso de un reloj externo en la cámara, después el COM03 y el COM14 que habilitan el escalado y hacen que este se haga de forma automática (según el valor dado en COM07[5]) además el COM14 hace que PCLK no se divida a sí mismo, los registros COM17 y COM07 comentados abajo con las entradas 0x08 y 0x0E respectivamente habilitan el test de la barra de colores de la cámara.
+![ard3](./figs/ard3.png)
+
+
+ 
+ Luego se configuran los registros COM13 y TSLB	 que habilitan  el ajuste automático del nivel de saturación ultravioleta de la imagen y  la corrección de la imagen por el parámetro gamma que ajusta la luminancia (densidad superficial de intensidad luminosa en una dirección dada), los registros HSTART, HSTOP, HREF, VREF, VSTART y VSTOP configuran el control de referencias horizontales (HREF) y verticales (VREF) de la imagen tomada, restringen el inicio y el final de estas además de controlar si estas están en HIGH o LOW; el COM12: hace que siempre exista HREF aunque VSYNC este en LOW, COM06 inhabilita el reinicio de tiempos cuando el formato cambia, REG74 está por defecto e inhabilita la ganancia digital, ABLC1 y THL_ST habilitan y configuran la calibración automática del nivel de negro (ABLC) en la imagen; MVFP,CHLF y RSVD no se sabe que se hacen ya que se cambian valores reservados. 
+
+![ard4](./figs/ard4.png)
+
+Finalmente se configuran los ajustes a la imagen, primero MTX1, MTX2, MTX3, MTX4, MTX5, MTX6 y MTXS que configuran los valores de la matriz de ajuste del matiz, la saturación y la corrección del color de la imagen, BRIGHT que controla el brillo de la imagen, CONTRAS que controla el contraste, DBLV que asigna que el control del PLL no dependa del reloj de entrada, GFIX que controla la ganancia de cada color (RED, GREEN, BLUE) en este caso 1; los registros editados en AWBC7, AWBC8, AWBC9, AWBC10, AWBC11, AWBC12, AWBCTR0, AWBCTR1, AWBCTR2 y AWBCTR3 varían la señal de control del balance automático de blancos (AWB), GGAIN que varía la ganancia de AWB dependiendo del verde en la imagen y un parámetro asignado y RSVD que no se sabe que hace porque se cambian valores reservados.
+
+
+![ard5](./figs/ard5.png)
+ 
+
+
 ## Línea del tiempo
 
 ![conexiones](./figs/Diagconexiones.png)
