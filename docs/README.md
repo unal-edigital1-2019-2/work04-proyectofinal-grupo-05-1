@@ -1,4 +1,4 @@
-# Cámara digital
+# CÁMARA DIGITAL
 ## GRUPO DE TRABAJO 05
 
 ## INTEGRANTES DEL GRUPO
@@ -268,41 +268,41 @@ Figura 28. Diagrama funcional del controlador de la pantalla VGA
 
 ---
 
-Se hizo la actualización del archivo "clk_32MHZ_to_25M_24M.v" de acuerdo a las especificaciones de la FPGA Nexys 4DDR. El archivo nuevo "clk24_25_nexys4.v" está en la carpeta /hdl/src/PLL/clk24_25_nexys4.v
+Se hizo la actualización del archivo "clk_32MHZ_to_25M_24M.v" de acuerdo a las especificaciones de la FPGA Nexys 4DDR. El archivo nuevo para el módulo de los divisores de frecuencias ***clk24_25_nexys4.v*** está en la carpeta /hdl/src/PLL/clk24_25_nexys4.v
 
 En las siguientes imágenes se encuentra el paso a paso de cómo se creó el nuevo PLL con Clocking Wizard.
 
-1) Una vez tenemos el proyecto abierto en ISE vamos a tools -> Core Generator. 
+**1)** Una vez se tiene el proyecto abierto en ISE vamos a tools -> Core Generator. 
 
-![Lectura1](./figs/1.png)
+![clock1](./figs/1.png)
 
-2) Luego le damos doble click a "view by name" y buscamos "Clock Wizard".
+**2)** Luego se da doble click a "view by name" y se busca "Clock Wizard".
  
-![Lectura1](./figs/2.PNG)
+![clock2](./figs/2.PNG)
 
-3) Después de unos segundos se abrirá el panel de control de Clock Wizard, en donde el único cambio a realizar es en la casilla de "Source", seleccionamos la opción "Global Buffer", observamos que “Input Freq (MHz) – Value” esté en 100,000 y le damos continuar.
+**3)** Después de unos segundos se abrirá el panel de control de Clock Wizard, en donde el único cambio a realizar es en la casilla de "Source", se selecciona la opción "Global Buffer", se observa que “Input Freq (MHz) – Value” esté en 100,000 debido a que es la frecuencia a la que trabaja la FPGA *Artix-7* de la *Nexys 4 DDR*, y se le da continuar.
 
-![Lectura1](./figs/3.png)
+![clock3](./figs/3.png)
 
-4) Ahora ingresamos las frecuencias de los dos relojes de salida que queremos. Primero se cambia el valor de la casilla "Output Freq (MHz) - Requested" de "CLK_OUT1" por 24,000. Para la segunda frecuencia del reloj activamos primero el reloj 2 dándole clic en la casilla frente a "CLK_OUT2" e ingresando la frecuencia deseada, en este caso 25,000. Sin cambiar nada más, le damos clic a Next.
+**4)** Ahora se ingresan las frecuencias de los dos relojes de salida que se quieren. Primero se cambia el valor de la casilla "Output Freq (MHz) - Requested" de "CLK_OUT1" por 24,000, este valor se debe a que es la frecuencia a la que trabaja la cámara OV7670. Para la segunda frecuencia del reloj se activa primero el reloj 2 dándole clic en la casilla frente a "CLK_OUT2" e ingresando la frecuencia deseada, en este caso 25,000 ya que es la frecuencia con la que opera la pantalla VGA. Sin cambiar nada más, se da clic a Next.
 
-![Lectura1](./figs/4.png)
+![clock4](./figs/4.png)
 
-5) En las 3 ventanas siguientes daremos next.
+**5)** En las 3 ventanas siguientes se da clic en Next.
 
-![Lectura1](./figs/5.png)
+![clock5](./figs/5.png)
 
-![Lectura1](./figs/6.png)
+![clock6](./figs/6.png)
 
-Observamos que los valores ingresados sean correctos.
+Luego se observa que los valores ingresados sean correctos.
 
-![Lectura1](./figs/7.png)
+![clock7](./figs/7.png)
 
-6) En esta última ventana damos click en "Generate" y esperamos que el programa genere el código.
+**6)** En esta última ventana se da clic en "Generate" y se espera que el programa genere el código.
 
-![Lectura1](./figs/8.png)
+![clock8](./figs/8.png)
 
-Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaza en la carpeta /hdl/src/PLL, teniendo cuidado de también reemplazar el nombre del módulo en test_cam.v.
+Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaza en la carpeta /hdl/src/PLL, teniendo cuidado de también reemplazar el nombre del módulo en ***test_cam.v***.
 
 
 ## Simulación de la cámara
@@ -314,6 +314,7 @@ Para esto primero se realiza la simulación sin implementar el fichero ***cam_re
 ![Fig.1](./figs/simulacion_inicial.png)
 
 Luego se realizan las pruebas usando el módulo diseñado ***cam_read.v***
+
 
 ## Configuración  Arduino
 Para realizar la configuración de la cámara por medio del arduino a través de comunicación por I2C se debe leer el datasheet de la cámara para poder editar los registros y así lograr la configuración deseada, cabe resaltar que cámara para poder funcionar con la configuración deseada debe estar siempre conectada al arduino  y tanto la cámara como la FPGA y el arduino deben estar conectados a una tierra común si no tampoco funciona.
