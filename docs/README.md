@@ -464,6 +464,7 @@ Bit[1] | Habilitar barra de color | 1: Habilitar
 Bit[0] | Formato de salida – Raw RGB | 0: RGB
 
  * ***COM17***: Dirección en hexadecimal *0x42*.
+ 
  **Configuración (**hex**):** 0x08.    **Configuración (**binario**):** 00001000.
  
  
