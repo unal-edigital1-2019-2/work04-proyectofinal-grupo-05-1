@@ -389,7 +389,7 @@ Bit[1] | Habilitar barra de color | 0: Inhabilitar
 Bit[0] | Formato de salida – Raw RGB | 0: YUV
 
      2) Formato de salida.
-**Configuración (**hex**):** 0x0C + 0x24.    **Configuración (**binario**):** 00001100 + 00100100.
+**Configuración (**hex**):** 0x0C.    **Configuración (**binario**):** 00001100.
 
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
@@ -409,7 +409,7 @@ Bit[0] | Formato de salida – Raw RGB | 0: RGB
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
 Bit[7:6] | Formato de dato | 11: Rango de salida: [00] a [FF] 
-Bit[5:4] | Reservado | 01: RGB565, efectivo solo cuando RGB44 es bajo 
+Bit[5:4] | Reservado | 01: RGB565, efectivo solo cuando RGB444 es bajo 
 Bit[3:0] | Reservado | 0000
 
 * ***COM3***: Dirección en hexadecimal *0x0C*.
@@ -437,14 +437,14 @@ Bit[4] | DCW y escalado de PCLK habilitado| 0: PCLK normal
 Bit[3] | Habilitación de escala manual para modos de resolución predefinidos como CIF, QCIF y QVGA | 0: El parámetro de escalado no puede hacerse manualmente
 Bit[2:0] | Divisor PCLK | 000: Dividir por 1
 
-* ***CLKR***: Dirección en hexadecimal *0x3E*.
+* ***CLKRC***: Dirección en hexadecimal *0x11*.
     * Habilita el uso de un reloj externo.
 **Configuración (**hex**):** 0xC0.    **Configuración (**binario**):** 11000000.
 
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
 Bit[7] | Reservado | 1
-Bit[6] | Habilitación uso de reloj externo| 0: Se habilita el reloj externo
+Bit[6] | Habilitación uso de reloj externo| 1: Se habilita el reloj externo
 Bit[5:0] | Pre-escalado del reloj interno | 000000: No se preescala porque no se usa
 
 
