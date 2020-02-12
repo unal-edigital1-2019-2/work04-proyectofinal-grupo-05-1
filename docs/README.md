@@ -213,6 +213,14 @@ Se tomó como parámetro inicial *AW = 17*, y las siguientes entradas, salidas y
 
 Figura 18. Declaración del módulo. Entradas, salidas y registros internos.
 
+A continuación se presenta los diagramas funcional y estructural del módulo ***cam_read.v*** diseñado.
+
+![d_funcional](./figs/Diagrama_funcional.png)
+Figura 26. Diagrama funcional del módulo diseñado *cam_read.v*.
+
+![d_estructural_captura](./figs/estructural_captura.png)
+Figura 27. Diagrama estructural de la captura de datos.
+
 Para asegurarse de tener una correcta lectura de las señales enviadas por la cámara (*PCLK*, *HREF*, *VSYNC* y * D[7:0]*) se realizó una máquina de estados finitos compuesta de 4 estados que se describen a continuación:
 
 **1) Variables iniciales:** Reinicia el contador de *HREF* y la dirección en la que se guardará el dato en la memoria *mem_px_addr*. Cambia al segundo estado cuando encuentra un flanco de bajada de la señal *VSYNC*.
@@ -262,14 +270,6 @@ Finalmente, se encuentra el último estado de la máquina y por fuera de ella su
 ![fsm_4](./figs/fsm_4.jpeg)
 
 Figura 25. Cuarto estado de la máquina.
-
-A continuación se presenta los diagramas funcional y estructural del módulo ***cam_read.v*** diseñado.
-
-![d_funcional](./figs/Diagrama_funcional.png)
-Figura 26. Diagrama funcional del módulo diseñado *cam_read.v*.
-
-![d_estructural_captura](./figs/estructural_captura.png)
-Figura 27. Diagrama estructural de la captura de datos.
 
 ### Controlador de la pantalla VGA (***VGA_driver.v***)
 
