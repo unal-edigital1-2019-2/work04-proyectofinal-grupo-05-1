@@ -16,10 +16,17 @@ Diseñar el sistema de una cámara digital que permita por medio de botones la v
 * Realizar la captura de los datos enviados por la cámara OV7670.
 * Realizar la conversión entre los diferentes formatos de pixeles soportados por la FPGA y la pantalla VGA.
 * Examinar los diferentes registros y configuraciones que puede tomar la cámara.
+*
+* Diseñar y programar una máquina de estados finitos.
+* Reconocer las características y capacidades de los elementos y diseñar con base en ellas.
+* Aprender sobre sistemas síncronos, transmisión serial y paralela de información, almacenamiento y lectura de datos.
+
 
 ## Introducción
+Como proyecto de la materia de digitales se decidió hacer crear un programa en Xilinxs que fuese capaz de recibir la información dada por una cámara digital (OV7670) y mostrarla en una pantalla estándar analógica de computadora (VGA). Para lograr dicho objetivo, es fundamental conocer los límites de los componentes con los que trabajamos, como por ejemplo: capacidad de memoria de la tarjeta programable (Nexys4DDR), formatos de imagen y de pixel que puede arrojar la cámara, frecuencias de funcionamiento, etc. Luego, se procede a hacer el análisis de las señales de salida de la cámara para crear una máquina de estados finita que permita estandarizar o crear una especie de proceso secuencial para la captura de la información en los tiempos correctos. Este paso es fundamental, ya que nos permite crear trazas del programa y así ver la información en diferentes pasos o tiempos y saber en donde está el error, en caso de haber uno.  Finalmente, manipulando diferentes registros de la cámara es posible modificar la imagen, estos registros son luz, contraste, color de matricez, etc. 
 
 ## Identificación del problema
+
 
 ## Módulos de la cámara
 
