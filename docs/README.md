@@ -8,12 +8,12 @@
 
 ## Objetivos
 
-Diseñar el sistema de una cámara digital que permita por medio de botones la visualizar tanto fotos (imagen estática), como vídeo (imágenes dinámicas) en una pantalla VGA.
+Diseñar el sistema de una cámara digital que permita por medio de botones la visualización tanto de fotos (imagen estática), como de vídeo (imágenes dinámicas) en una pantalla VGA.
 
 ### Objetivos específicos
 
-* Analizar que se debe tener en cuenta para crear una memoria RAM que no desborde lo de la tarjeta.
-* Realizar la captura de los datos enviados por la cámara OV7670
+* Analizar que se debe tener en cuenta para crear una memoria RAM que no desborde lo memoria de la FPGA.
+* Realizar la captura de los datos enviados por la cámara OV7670.
 * Realizar la conversión entre los diferentes formatos de pixeles soportados por la FPGA y la pantalla VGA.
 * Examinar los diferentes registros y configuraciones que puede tomar la cámara.
 
@@ -638,7 +638,7 @@ Figura 51. Resultado final de la simulación.
 
 ### Conclusiones
 
-* Se encontró que los parámetros a tener en cuenta para crear una memoria RAM son el formato de los pixeles y el tamaño de la imagen que se desea guardar. En el caso de la tarjeta *Nexys 4DDR* no es posible almacenar los datos de una imagen de 640x480 en formato RGB565 y aun así si se disminuye a RGB332 ocuparía demasiado espacio, por esa razón se prefirió trabajar con una imagen de 320x240 en RGB332. 
+* Se encontró que los parámetros a tener en cuenta para crear una memoria RAM son el formato de los píxeles y el tamaño de la imagen que se desea guardar. En el caso de la tarjeta *Nexys 4DDR* no es posible almacenar los datos de una imagen de 640x480 en formato RGB565 y aun así si se disminuye a RGB332 ocuparía demasiado espacio, por esa razón se prefirió trabajar con una imagen de 320x240 en RGB332. 
 
 * Se aprendió a recolectar datos de señales externas a la FPGA, como lo son las de la cámara (*PCLK*, *HREF*, *VSYNC* y *D [7:0]*) y a emplear máquinas de estado finitos, para asegurarse que está realizando la acción correcta en el momento correcto dependiendo del comportamiento de dichas señales. 
 
