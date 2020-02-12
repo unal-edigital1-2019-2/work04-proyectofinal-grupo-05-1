@@ -380,29 +380,17 @@ Las conexiones se encuentran representadas en el siguiente diagrama, los pines *
 
 Figura 37. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
-## Simulación de la cámara
-
-Se realizó la simulación de la cámara con el fin de observar su funcionamiento, sin tener la incertidumbre si se tiene incorrecta la captura de datos o la configuración de la cámara con Arduino.
-
-Para esto primero se realiza la simulación sin implementar el fichero ***cam_read.v***, como se observa, la simulación muestra dos pantallas, ambas con un cuadro de líneas azules y rosadas, tal como se ve en una pantalla VGA cuando no se conecta una cámara. Esto se debe a que es el valor con el que se inicializó la memoria RAM en el módulo ***buffer_ram_dp.v***.
-
-![Fig.1](./figs/simulacion_inicial.png)
-
-Luego se realizan las pruebas usando el módulo diseñado ***cam_read.v***
-
-
 ## Configuración  Arduino
-Para realizar la configuración de la cámara por medio del arduino a través de comunicación por I2C se debe leer el datasheet de la cámara para poder editar los registros y así lograr la configuración deseada, cabe resaltar que cámara para poder funcionar con la configuración deseada debe estar siempre conectada al arduino  y tanto la cámara como la FPGA y el arduino deben estar conectados a una tierra común si no tampoco funciona.
+Para realizar la configuración de la cámara por medio del Arduino a través de comunicación por I2C se debe leer el datasheet de la cámara para poder editar los registros y así lograr la configuración deseada, cabe resaltar que la cámara para poder funcionar con la configuración deseada debe estar siempre conectada al Arduino  y tanto la cámara como la FPGA y el Arduino deben estar conectados a una tierra común si no tampoco funciona.
 
-Primero definimos la dirección del bus de comunicación I2C de la cámara y configuramos las funciones de lectura y escritura desde y hacia la cámara de los registros a configurar además de una función para editar y otra para leer los valores de los registros.
+Primero se define la dirección del bus de comunicación I2C de la cámara y se configuran las funciones de lectura y escritura desde y hacia la cámara de los registros a configurar, además de una función para editar y otra para leer los valores de dichos registros.
 
  ![ard1](./figs/ard1.png)
 
-
 ![ard2](./figs/ard2.png)
 
-
 Después se empieza con la configuración de los registros, en primer lugar configuramos los parámetros que dan el funcionamiento a la cámara, el COM07 con la entrada 0x80 para reiniciar los registros a sus valores por defecto, le dejamos un  delay de tiempo y seguimos configurando los demás registros primero configuramos el registro COM07 y el COM15 con el valor 0x24  y 0xD0 respectivamente habilitando la salida de pixeles en formato CIF y RGB565, en segundo lugar el registro CLKR que habilita el uso de un reloj externo en la cámara, después el COM03 y el COM14 que habilitan el escalado y hacen que este se haga de forma automática (según el valor dado en COM07[5]) además el COM14 hace que PCLK no se divida a sí mismo, los registros COM17 y COM07 comentados abajo con las entradas 0x08 y 0x0E respectivamente habilitan el test de la barra de colores de la cámara.
+
 ![ard3](./figs/ard3.png)
 
 #### Registros Configuración
@@ -513,43 +501,100 @@ Bit[2:0] | Reservado | 000:
 
 ![ard4](./figs/ard4.png)
 
-Finalmente se configuran los ajustes a la imagen, primero MTX1, MTX2, MTX3, MTX4, MTX5, MTX6 y MTXS que configuran los valores de la matriz de ajuste del matiz, la saturación y la corrección del color de la imagen, BRIGHT que controla el brillo de la imagen, CONTRAS que controla el contraste, DBLV que asigna que el control del PLL no dependa del reloj de entrada, GFIX que controla la ganancia de cada color (RED, GREEN, BLUE) en este caso 1; los registros editados en AWBC7, AWBC8, AWBC9, AWBC10, AWBC11, AWBC12, AWBCTR0, AWBCTR1, AWBCTR2 y AWBCTR3 varían la señal de control del balance automático de blancos (AWB), GGAIN que varía la ganancia de AWB dependiendo del verde en la imagen y un parámetro asignado y RSVD que no se sabe que hace porque se cambian valores reservados.
-
+Finalmente se configuran los ajustes a la imagen, primero MTX1, MTX2, MTX3, MTX4, MTX5, MTX6 y MTXS que configuran los valores de la matriz de ajuste del matiz, la saturación y la corrección del color de la imagen, BRIGHT que controla el brillo de la imagen, CONTRAS que controla el contraste, DBLV que asigna que el control del PLL no dependa del reloj de entrada, GFIX que controla la ganancia de cada color (RED, GREEN, BLUE) en este caso 1; los registros editados en AWBC7, AWBC8, AWBC9, AWBC10, AWBC11, AWBC12, AWBCTR0, AWBCTR1, AWBCTR2 y AWBCTR3 varían la señal de control del balance automático de blancos (AWB), GGAIN que varía la ganancia de AWB dependiendo del verde en la imagen y un parámetro asignado y RSVD que no se sabe qué hace porque se cambian valores reservados.
 
 ![ard5](./figs/ard5.png)
- 
-
 
 ## Línea del tiempo
 
-Antes de que se trabajara con una máquina de estados que nos permitiera capturar la información de los píxeles que nos enviaba la cámara, se trabajó con una serie de condicionales anidados según los estados actuales y pasados de las señales base (VSYNC, HREF y PCLK). Esta forma de acercamiento no es recomendable ya que se complica establecer procesos que tengan una mayor prioridad en cierta parte del proceso, es difícil saber en cuál condicional ejecutó el programa ya que las señales experimentalmente no siempre son iguales a como se describen en el Datasheet. En este punto lo que se buscaba era que se pudiese visualizar las barras horizontales de colores que fueron cargadas inicialmente en la memoria sin haber conectado la cámara, y cuando se conectase la cámara ver video. Las imágenes que obtuvimos fueron las siguientes:
+### Imagen precargada y captura de datos
+
+Antes de que se trabajara con una máquina de estados que permitiera capturar la información de los píxeles que enviaba la cámara, se trabajó con una serie de condicionales anidados según los estados actuales y pasados de las señales base (VSYNC, HREF y PCLK). Esta forma de acercamiento no es recomendable ya que se complica establecer procesos que tengan una mayor prioridad en cierta parte del proceso, es difícil saber en cuál condicional ejecutó el programa ya que las señales experimentalmente no siempre son iguales a como se describen en el datasheet.
+
+En este punto lo que se buscaba era que se pudiese visualizar las barras horizontales de colores que fueron cargadas inicialmente en la memoria sin haber conectado la cámara, y luego cuando se conectase la cámara se debía ver video. Las imágenes que se obtuvieron fueron las siguientes:
 
      Imagen de las líneas horizontales y de la estática
 ![Lectura1](./figs/Barra_de_colores_horizontal.jpeg)
+
+Figura 38. Líneas horizontales precargadas en la RAM.
+
 ![Lectura1](./figs/estatica.jpeg)
-	Video estática: Para la visualización del video por favor remitirse a http://bit.ly/2OIWzxS
-     
-Luego se decidió un acercamiento diferente, recomendado por el profesor, el desarrollo de una máquina de estados para la captura de datos. Así que no solo se empezó el desarrollo de la cámara sino de diferentes pruebas para encontrar los puntos problemáticos del código. Se probaron los colores por separado y se hizo una simulación de captura de datos, para probar si la conformación del píxel era correcta. La prueba de los colores individuales consistía en solo conectar los pines correspondientes al dowsampling del color deseado en HIGH y los demás en LOW, es decir, para el color rojo se toman únicamente los 3 datos más significativos del primer bus de datos. Esta prueba nos dio lo siguientes resultados:
+
+Figura 39. Estática observada al conectar la cámara.
+
+Video estática: Para la visualización del video por favor remitirse a [http://bit.ly/2OIWzxS](http://bit.ly/2OIWzxS).
+
+### Simulación
+
+Se realizó la simulación de la cámara con el fin de observar su funcionamiento, sin tener la incertidumbre si lo incorrecto era la captura de datos o la configuración de la cámara con Arduino.
+
+Para esto primero se realizó la simulación sin implementar el fichero ***cam_read.v***, como se observa, la simulación muestra dos pantallas, ambas con un cuadro de líneas azules y rosadas, tal como se ve en una pantalla VGA cuando no se conecta una cámara. Esto se debe a que es el valor con el que se inicializó la memoria RAM en el módulo ***buffer_ram_dp.v***.
+
+![Fig.1](./figs/simulacion_inicial.png)
+
+Figura 40. Simulación con la imagen precargada.
+
+Luego se realizó la simulación con el módulo de captura de datos que se tenía en ese momento, dicha simulación mostraba en la primera pantalla el valor inicial que tiene la RAM, y en la segunda un cuadro rojo que ocupaba toda la pantalla, esto se debe a que la dirección iba aumentando en uno y nunca regresaba a cero.
+
+![Fig.5](./figs/simulacion1.png)
+
+Figura 41. Simulación de la pantalla totalmente roja.
+
+Al restringir la dirección hasta el número de píxeles de la imagen, se observó que la imagen tenía el tamaño correcto. En ese momento se estaba trabajando con una resolución de 120x160 píxeles.
+
+![Fig.6](./figs/simulacion2.png)
+
+Figura 42. Simulación de la imagen roja.
+
+Pero al volver a implementar la cámara en físico seguía enviando imágenes lluviosas como la mostrada anteriormente. Debido a esto se realizó una simulación con rayas verticales de colores para observar si existía una desincronización en la captura. La simulación nos arrojó las siguientes barras:
+
+![verticales1](./figs/barras_verticales_1.jpeg)
+
+![verticales2](./figs/barras_verticales_2.jpeg)
+
+Figura 43. Simulación de las barras verticales.
+
+Luego se decidió un acercamiento diferente, recomendado por el profesor, el desarrollo de una máquina de estados para realizar los contadores de líneas (*HREF*) y de píxeles existentes, tanto por línea como en general en una sola imagen. Al implementar esto se observó que los datos eran los correctos, por lo tanto, se pudo decir que el problema no radicaba en las señales que enviaba la cámara.
+
+
+### Colores en la pantalla
+
+Se probaron los colores por separado, para mirar si la conformación del píxel era correcta sin necesidad de tener la cámara conectada. La prueba de los colores individuales consistía en solo conectar los pines correspondientes al dowsampling del color deseado en HIGH y los demás en LOW, es decir, para el color rojo se tomaban únicamente los 3 datos más significativos del primer bus de datos. 
+
+En otras palabras, para obtener el color rojo se conectaron los pines *CAM_px_data* 5, 6 y 7 a *VCC* (3,3 V) y los pines *CAM_px_data* restantes a *GND*. Si se deseara un cuadro verde se conectarían los pines 0, 1 y 2 a *VCC* y los demás a *GND*; en el caso de azul sólo se conectarían 3 y 4 a *VCC*.
+
+Esta prueba dio lo siguientes resultados:
 
 	Imagen de las pruebas de colores – color 
-![Lectura1](./figs/azul.jpeg)
-![Lectura1](./figs/rojo.jpeg)
-![Lectura1](./figs/verde.jpeg)
-La simulación de la captura de datos, explicada anteriormente, arrojo la siguiente imagen
-	
-	Imagen prueba simulación de captura de datos
-	![Lectura1](./figs/.jpeg)	
 
-Para este punto sabíamos que la conformación del píxel era correcta, así que se procedió con demás pruebas. Las siguientes pruebas fueron los contadores de líneas (HREF) y de píxeles existentes, tanto por línea como en general y la simulación de captura de datos, pero esta vez con columnas de varios colores. La simulación nos arrojó las siguientes barras
+![pantallas_RGB](./figs/pantallas_RGB.png)
 
-	Imagen prueba simulación de colores - barras
-![Lectura1](./figs/barras_verticales_1.jpeg)
-![Lectura1](./figs/barras_verticales_2.jpeg)
+Figura 44. Pantallas de colores RGB.
 
-De la imagen se puede deducir que hay cierto desfase, que las líneas no son completamente horizontales y que se están almacenando en posiciones incorrectas. Este hallazgo nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo. Para salir de esta duda, se desarrollaron los contadores mencionados anteriormente, el de HREF, píxeles totales y por línea. Estas pruebas nos permitieron saber el formato verdadero en el que la cámara estaba enviando la información y así encontrar el error en el código para su debida corrección.
+### Barra de colores de la cámara
 
-Imagen contadores de HREF, píxeles_totales y píxeles_linea.
-Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. El primer paso fue el de configurar los dos botones que nos permitirán tomar una foto. Este botón permitía el almacenamiento de solo un frame mientras estuviera en HIGH, como se ve en las siguientes imágenes
+Para este punto se sabía que la conformación del píxel era correcta, pero aun así de la imagen de la simulación se pudo deducir que había cierto desfase, que las líneas no eran completamente verticales y que se estaban almacenando en posiciones incorrectas. Debido a este hallazgo se decidió introducir la captura de datos y el downsampling dentro de la máquina de estados finitos. Además, nos hizo pensar que tal vez la cámara estuviera mal configurada, que esta no tuviera el formato deseado, por ejemplo.
+
+Debido a lo descrito anteriormente, se dispuso a configurar los registros de las barras de colores que trae por defecto la cámara y se realizó nuevamente la implementación en físico, obteniendo lo siguiente:
+
+![barras_colores_camara](./figs/barras_colores_camara.jpeg)
+
+Figura 45. Barras de colores de la cámara por defecto.
+
+Con esto se pudo ver que los datos ya se hallaban sincronizados y se volvió a comprobar que la conformación de los pixeles era correcta debido a los colores arrojados.
+
+### Resultado final
+
+Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una foto y un video. El primer paso fue el de configurar los dos botones que nos permitirán tomar una foto y devolvernos al modo vídeo. 
+
+El montaje de los elementos realizado tanto para las barras de colores como para la foto y el video se muestra a continuación:
+
+![Montaje](./figs/Montaje.jpeg)
+
+Figura 46. Montaje de la cámara, FPGA y Arduino.
+
+
+Uno de los botones configurados permite el almacenamiento de solo un frame mientras esté en HIGH, como se ve en las siguientes imágenes
 
 	Imágenes de las fotos
 ![Lectura1](./figs/Mitchell.jpeg)
@@ -558,21 +603,22 @@ Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una fo
 
 Luego se hizo la grabación del video
 
-	Video: Remitirse a http://bit.ly/2OIWzxS
+Video: Remitirse a [http://bit.ly/2OIWzxS](http://bit.ly/2OIWzxS).
 
-Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. En las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
+Después, y por motivos educativos y de recreación, se probaron diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. En las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
 
 	Foto jugando con la luz y el contraste
-![Lectura1](./figs/00.jpeg)
-![Lectura1](./figs/FF.jpeg)
-![Lectura1](./figs/0A.jpeg)
 
-![Lectura1](./figs/00_Contraste.jpeg)
-![Lectura1](./figs/0A_contraste.jpeg)
-![Lectura1](./figs/40_contraste.jpeg)
-Y para finalizar, se hizo lo mismo con las matrices de colores, en donde se cambiaban sus valores para ver su influencia en las fotos
-	
-	Fotos jugando con las matrices de colores.
-![Lectura1](./figs/Matriz_de_colores_1.jpeg)
-![Lectura1](./figs/Matriz_de_colores_2.jpeg)
+![Brillo](./figs/brillo.png)
 
+Figura 47. De izquierda a derecha, configuraciones de brillo 00, 0A, FF.
+
+![Constraste](./figs/contraste.png)
+
+Figura 48. De izquierda a derecha, configuraciones de brillo 00, 0A, 40.
+
+Y para finalizar, se hizo lo mismo con las matrices de colores, en donde se cambiaban sus valores para ver su influencia en las fotos.
+
+![matriz_colores](./figs/matriz_colores.png)
+
+Figura 49. Fotos al variar la matriz de colores.
