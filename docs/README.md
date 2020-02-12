@@ -299,9 +299,10 @@ Para realizar el conteo de la posición en *X* y *Y* se sincroniza con las flanc
 
 Figura 31. Actualización de los contadores en *X* y *Y*.
 
+A continuación se muestra el diagrama funcional del controlador de la pantalla VGA.
+
 ![d_funcional_VGA](./figs/Diagrama_funcional_VGA.png)
 
-A continuación se muestra el diagrama funcional del controlador de la pantalla VGA.
 
 Figura 32. Diagrama funcional del controlador de la pantalla VGA
 
@@ -345,6 +346,39 @@ Luego se observa que los valores ingresados sean correctos.
 
 Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaza en la carpeta /hdl/src/PLL, teniendo cuidado de también reemplazar el nombre del módulo en ***test_cam.v***.
 
+### UCF (***Nexys4_Master.ucf***)
+
+---
+
+Se crea un archivo **.ucf** que es el encargado de mapear o conector las entradas y las salidas del sistema con la tarjeta programable *Nexys 4DDR*. Se le asigna a clk el reloj de *100 MHz* de la FPGA, los registros *rst*, *boton_CAM* y *boton_video* se unen a tres pulsadores y además se declara que la señales *CAM_vsync*, *CAM_href* y *CAM_pclk*no son relojes, sino datos que ingresan al sistema.
+
+![ucf_clk](./figs/ucf_clk.jpeg)
+
+Figura 33. UCF reloj y pulsadores.
+
+Los datos de salida en formato RGB444 se conectan a los pines del conector VGA de la pantalla de la siguiente manera:
+
+![ucf_vga](./figs/ucf_vga.jpeg)
+
+Figura 34. UCF conector VGA.
+
+Las señales *CAM_pclk*, * CAM_href*, *CAM_vsync*, *CAM_reset*, *CAM_pwdn* y *CAM_xclk* (recibe el reloj de *24 Hz*) se unen a los pines JD y *CAM_px_data* a los pines JC de la tarjeta.
+
+![ucf_pines](./figs/ucf_pines.jpeg)
+
+Figura 35. UCF pines JC y JD.
+
+Por último los switches y LEDs encargados de controlar y mostrar los valores de los contadores se acoplan de la siguiente forma:
+
+![ucf_switch_leds](./figs/ucf_switch_leds.jpeg)
+
+Figura 36. UCF switches y LEDs.
+
+Las conexiones se encuentran representadas en el siguiente diagrama, los pines *SIOC* y *SIOD* no se incluyen en el **.ucf** debido a que son los que permiten la configuración de la cámara y van conectados a una tarjeta Arduino Mega:
+
+![conexiones](./figs/Diagconexiones.png)
+
+Figura 37. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
 ## Simulación de la cámara
 
@@ -389,7 +423,7 @@ Bit[1] | Habilitar barra de color | 0: Inhabilitar
 Bit[0] | Formato de salida – Raw RGB | 0: YUV
 
      2) Formato de salida.
-**Configuración (**hex**):** 0x0C.    **Configuración (**binario**):** 00001100.
+**Configuración (**hex**):** 0x24.    **Configuración (**binario**):** 00100100.
 
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
@@ -487,9 +521,6 @@ Finalmente se configuran los ajustes a la imagen, primero MTX1, MTX2, MTX3, MTX4
 
 
 ## Línea del tiempo
-
-![conexiones](./figs/Diagconexiones.png)
-Figura []. Diagrama de las conexiones entre la FPGA, la cámara y el Arduino Mega
 
 Antes de que se trabajara con una máquina de estados que nos permitiera capturar la información de los píxeles que nos enviaba la cámara, se trabajó con una serie de condicionales anidados según los estados actuales y pasados de las señales base (VSYNC, HREF y PCLK). Esta forma de acercamiento no es recomendable ya que se complica establecer procesos que tengan una mayor prioridad en cierta parte del proceso, es difícil saber en cuál condicional ejecutó el programa ya que las señales experimentalmente no siempre son iguales a como se describen en el Datasheet. En este punto lo que se buscaba era que se pudiese visualizar las barras horizontales de colores que fueron cargadas inicialmente en la memoria sin haber conectado la cámara, y cuando se conectase la cámara ver video. Las imágenes que obtuvimos fueron las siguientes:
 
