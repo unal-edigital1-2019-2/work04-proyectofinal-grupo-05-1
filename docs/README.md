@@ -1,4 +1,4 @@
-# CÁMARA DIGITAL
+# Cámara digital
 ## GRUPO DE TRABAJO 05
 
 ## INTEGRANTES DEL GRUPO
@@ -99,11 +99,11 @@ Las entradas y salidas tomadas para éste módulo fueron las siguientes:
 
 #### Entradas:
 * *clk_w:* Reloj para la escritura de los datos, en este caso es la señal *PCLK* que envía la cámara.
-* *addr_in [14:0]:* La dirección de entrada en la cual serán guardados los datos en la memoria.
+* *addr_in [16:0]:* La dirección de entrada en la cual serán guardados los datos en la memoria.
 * *data_in [7:0]:* El dato de entrada, es decir, el píxel en formato RGB332.
 * *regwrite:* Señal que controla cuando se escribe en la memoria RAM.
 * *clk_r:* Reloj para la lectura de los datos, en este caso es *25 MHz* la misma frecuencia a la que operan las pantallas VGA.
-* *addr_out [14:0]:* La dirección del dato que debe leer en la memoria para mostrarlo en pantalla.
+* *addr_out [16:0]:* La dirección del dato que debe leer en la memoria para mostrarlo en pantalla.
 
 #### Salidas:
 * *data_out [7:0]:* El dato que debe ser enviada a la pantalla según la dirección brindada.
@@ -111,7 +111,7 @@ Las entradas y salidas tomadas para éste módulo fueron las siguientes:
 
 ![bufferRAM1](./figs/bufferRAM1.jpg)
 
-Figura 10. Declaración del módulo.
+Figura 10. Declaración del módulo. Entradas, salidas y parámetros.
 
 Se define un parámetro local para realizar el cálculo de la cantidad de bits de la dirección *2^AW = 2^17*, se crea la RAM tomando como “ancho” de registro 8 bits y un “alto” de 32.768 posiciones.
 
@@ -164,48 +164,105 @@ Figura 17. Lectura de los datos recién insertados.
 
 ---
 
-Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un píxel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, escogemos únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) escogemos los 3 y 2 bits más significativos correspondientemente, como se muestra a continuación.
+Para la captura de los datos enviados por la cámara se diseñó un módulo que tome y pase los datos de formato RGB565 a formato RGB332, cuente cuántas veces se repite la señales *HREF*, *PCLK* hasta el final de la imagen o en la línea y, además, envíe los datos a la memoria RAM.
 
-![Lectura1](./figs/downsampling.png)
+Se tomó como parámetro inicial *AW = 17*, y las siguientes entradas, salidas y registros internos:
 
-Para ello se crearon variables auxiliares internas:
-* *[AW-1:0] mem_px_addr:* Este registro da la dirección en memoria en donde los bits del píxel  serán guardados después del downsampling. 
-* *[7:0] mem_px_data:*  En este registro se guarda la información obtenida de px_data correspondiente al píxel durante el proceso de downsampling.
+#### Entradas:
+* *rst:* Reinicia la captura de datos.
+* *pclk:* Señal *PCLK* dada por la cámara. Permite que el almacenamiento se realice de manera síncrona, es decir, a la misma velocidad a la que la cámara manda los resultados y así evitando que se pierda información o que se guarde más de una vez un pixel.
+* *href:* Señal *HREF* dada por la cámara. Esta variable indica cuando se está transmitiendo la información de una línea de pixeles.
+* *vsync:* Señal *VSYNC* dada por la cámara. Esta variable indica cuando la cámara empieza a transmitir información al módulo de captura de datos. Como se ve en la imagen, esta señal cuenta con dos flancos, el primero indica el inicio y el segundo el final de la transmisión (final de la imagen), permaneciendo apagada en el intermedio.
+* *px_data [7:0]:* Señal de 8 bits dada por la cámara la cual contiene la información de los colores (*D[7:0]*).
+* *option [2:0]:* Señal dada por un switches, la cual nos indica que valor deben mostrar los LEDs de la FPGA. Los valores pueden ser el contador de *HREF*, el contador de *PCLK* por línea o los *PCLK* de toda la imagen.
+* *boton_CAM:* Controla cuando se toma una foto, es decir, el cambio de vídeo a imagen estática.
+* *boton_video:* Controla cuando se regresa a modo vídeo, es decir, el cambio de foto a imagen dinámica.
+
+**Nota:** Se usan los dos botones *botón_CAM* y *botón_video* para evitar errores entre el cambio de modo foto a modo video y viceversa, que se pueda producir por el efecto rebote de los pulsadores.
+
+#### Salidas:
+* *[16:0] mem_px_addr:* Este registro da la dirección en memoria en donde los bits del píxel  serán guardados después del downsampling. 
+* *[7:0] mem_px_data:*  En este registro se guarda la información obtenida de *px_data* correspondiente al píxel durante el proceso de downsampling.
 * *px_wr:* Este registro indica si se escribe o no el valor almacenado en mem_px_data a la posición de memoria asignada en la RAM.
+* *leds [15:0]:* Este registro guarda el valor del alguno de los contadores dependiendo de *option*.
+
+#### Registros internos:
+* *fsm_state [2:0]:* Variable que almacena el valor del estado actual de la máquina de estado, además, nos permite cambiar de estados.
+* *pas_vsync:* Almacena el valor anterior de *VSYNC*.
 * *cont:* Este registro que no es entrada ni salida es una variable de control que indica si está leyendo el primer byte o el segundo que forma el píxel y qué se debe almacenar en *mem_px_data*.
+* *cont_href [15:0]:* Guarda el valor total de los *HREF* de una imagen.
+* *pas_href [15:0]:* Almacena el valor anterior de *HREF*.
+* *cont_pixel [15:0]:* Guarda el valor total de píxeles o *PCLK* en una línea.
+* *cont_pclk [15:0]:* Guarda el valor total de los *PCLK* de una imagen.
 
-Ya adentrándonos en el código realizado para este fin vemos que el proceso se realiza en el módulo de captura de datos (***cam_read.v***). 
-Primero vemos la declaración de las entradas y salidas del módulo en las cuales analizamos lo que nos interesa, que es el px_data que trae la información obtenida por la cámara y nuestros registros auxiliares que fueron explicados anteriormente.
+![declarar_camread](./figs/entradas_salidas_camread.jpeg)
 
-![Lectura1](./figs/rgb1.png)
+Figura 18. Declaración del módulo. Entradas, salidas y registros internos.
 
-A continuación vemos que se crea una condicional que depende de PCLK  e internamente se hace otro dentro de una máquina de estados que depende de HREF y VSYNC, la posición del píxel en el buffer de memoria dada por mem_px_adrr se asigna a la posición 0, en el caso 2 del fsm_state que se da en el primer ciclo de reloj vemos que se guardan los píxeles de las posiciones [7:5] y [2:0] de la señal de entrada de la cámara px_data guardando en ellas los valores de rojo y verde mas significativos en el registro mem_px_data lo cuales permanecen allí hasta el próximo ciclo de reloj ya que no se guardan en el buffer de memoria ya que el registro px_wr permanece en 0 y cont=0 
-aunque después de ese ciclo cont=~cont, este estado es de transición puesto solo ocurre durante el primer ciclo de reloj.
+Para asegurarse de tener una correcta lectura de las señales enviadas por la cámara (*PCLK*, *HREF*, *VSYNC* y * D[7:0]*) se realizó una máquina de estados finitos compuesta de 4 estados que se describen a continuación:
 
-![Lectura1](./figs/rgb2.png)
+**1) Variables iniciales:** Reinicia el contador de *HREF* y la dirección en la que se guardará el dato en la memoria *mem_px_addr*. Cambia al segundo estado cuando encuentra un flanco de bajada de la señal *VSYNC*.
 
-Finalmente vemos que cuando fsm_state sea igual a 3 este verifica el estado del registro *cont*, si este es 0 vuelve a hacer lo que estaba haciendo cuando el fsm_state era igual a 2, pero en el segundo ciclo de reloj entra a la condición en el que mem_px_data almacena los datos del azul correspondientes a los datos [4:3] del *px_data*, además de hacer que *px_wr = 1*, guardando el píxel en este caso en la posición 0 del buffer de memoria, y que hace que  *mem_px_adrr* aumente 1, moviendo así la dirección para almacenar el proximo píxel, cont se niega volviendo a 0 y como no se sale de la condición fsm_state=3 el ciclo continúa por los *160x120 píxeles* hasta que que se llena el buffer de memoria asignado.
+**2) Contador de HREF:** Si hay un flanco de subida de *HREF* le suma 1 a su contador ya al contador de *PCLK* total, reinicia el valor del contador de *PCLK* por línea, hace downsampling y cambia al tercer estado. Si *VSYNC* es 1 cambia al primer estado. Si se oprime el pulsador que controla *boton_CAM* cambia al cuarto estado.
 
-![Lectura1](./figs/rgb3.png)
+**3) Captura de datos:** Si *HREF* es 1 realiza la captura y downsampling de los datos, de lo contrario vuelve al segundo estado.
+
+**4) Contador de HREF:** Coloca el registro *px_wr* que controla la escritura en 0 (no escribir en la RAM) y asigna el valor de un contador al registro leds dependiendo de la respuesta de *option*. Si se acciona el pulsador de *boton_video* vuelve al primer estado.
 
 ![fsm](./figs/fsm_state.png)
-Figura []. Máquina de estado finitos para la captura de datos y contadores
+
+Figura 19. Máquina de estados finitos para la captura de datos y contadores.
+
+En la siguiente gráfica se puede observar en cuál es el estado actual dependiendo de cómo la cámara esté mandando las señales.
 
 ![fsm_sennal](./figs/sennal_estados.png)
-Figura []. Estados según las señales enviadas por la cámara
+
+Figura 20. Estados según las señales de la cámara
+
+A continuación se crea una condicional que depende de los flancos de subida de PCLK e internamente se tiene otro condicional que depende de la señal *rst* dada por un botón de la tarjeta, si este es pulsado reinicia el valor de la dirección *mem_px_addr* y los registros *cont_href*, *leds* y *pas_vsync*; además, establece como estado actual el primero. Si éste no es activado entra a la máquina de estados.
+
+![rst_camRead](./figs/rst_camRead.jpeg)
+
+Figura 21. Acción de *rst* en el módulo ***cam_read.v***.
+
+Dada la elección del formato de imagen a trabajar siendo esta el RGB332, se conformará un píxel de 8 bits y se transmitirá al buffer de memoria. Teniendo en cuenta que el formato en el que se configuró la cámara para enviar la información del píxel es el del RGB565, es necesario  pasar de este formato al  RGB332. Esto se logró por medio de un proceso llamado downsampling, el cual consiste en la reducción del tamaño de la información por medio de la selección o truncamiento de determinados bits. En este caso la forma de realizar el proceso de downsampling fue escogiendo los bits más significativos de cada uno de los colores según corresponda. Por ejemplo, el color rojo (RED) viene en un formato en donde contiene 5 bits y para transformarlo al otro formato en donde sólo cuenta con 3 bits, se escoge únicamente los 3 bits más significativos; para el caso del verde (GREEN) y del azul (BLUE) se escoge los 3 y 2 bits más significativos correspondientemente, como se muestra a continuación.
+
+![downsampling](./figs/downsampling.png)
+
+Figura 22. Downsampling de los datos enviados por la camára * px_data*.
+
+Dentro de la máquina de estados se encuentra otro condicional que depende de HREF y VSYNC, la posición del píxel en el buffer de memoria dada por *mem_px_addr* se asigna a la posición 0, en el caso 2 del *fsm_state* que se da en el primer ciclo de reloj se puede observar que se almacenan los píxeles de las posiciones [7:5] y [2:0] de la señal de entrada de la cámara *px_data* guardando en el registro *mem_px_data* los valores de rojo y verde más significativos lo cuales permanecen allí hasta el próximo ciclo de reloj ya que no se guardan en el buffer de memoria debido a que el registro *px_wr* permanece en 0 y *cont = 0*. Después de ese ciclo *cont*=~*cont*, este estado es de transición puesto sólo ocurre durante el primer ciclo de reloj.
+
+![fsm_1_2](./figs/fsm_1_2.jpeg)
+
+Figura 23. Primer y segundo estado de la máquina.
+
+Luego se observa que cuando *fsm_state* sea igual a 3 este verifica el estado del registro *cont*, si este es 0 vuelve a hacer el mismo downsamplig que cuando el *fsm_state* era igual a 2, pero en el segundo ciclo de reloj entra a la condición en el que *mem_px_data* almacena los valores del azul correspondientes a los datos [4:3] del *px_data*, además de hacer que *px_wr = 1*, enviando una señal para que almacene el píxel en la RAM, en el caso del primer ciclo de reloj en la posición 0, sino hace que *mem_px_addr* aumente 1, moviendo así la dirección para almacenar el próximo píxel, *cont* se niega volviendo a 0 y como no se sale de la condición *fsm_state = 3* el ciclo continúa por los *160x120 píxeles* hasta que se llena el buffer de memoria asignado.
+
+![fsm_3](./figs/fsm_3.jpeg)
+
+Figura 24. Tercer estado de la máquina.
+
+Finalmente, se encuentra el último estado de la máquina y por fuera de ella su observa que el valor actual de *VSYNC* es asignado a *pas_vsync*.
+
+![fsm_4](./figs/fsm_4.jpeg)
+
+Figura 25. Cuarto estado de la máquina.
+
+A continuación se presenta los diagramas funcional y estructural del módulo ***cam_read.v*** diseñado.
 
 ![d_funcional](./figs/Diagrama_funcional.png)
-Figura []. Diagrama funcional del módulo diseñado *cam_read.v*
+Figura 26. Diagrama funcional del módulo diseñado *cam_read.v*.
 
 ![d_estructural_captura](./figs/estructural_captura.png)
-Figura []. Diagrama estructural de la captura de datos
+Figura 27. Diagrama estructural de la captura de datos.
 
 ### Controlador de la pantalla VGA (***VGA_driver.v***)
 
 ---
 
 ![d_funcional_VGA](./figs/Diagrama_funcional_VGA.png)
-Figura []. Diagrama funcional del controlador de la pantalla VGA
+Figura 28. Diagrama funcional del controlador de la pantalla VGA
 
 ### Divisor de frecuencias - Reloj (***clk24_25_nexys4.v***)
 
@@ -316,3 +373,4 @@ Y para finalizar, se hizo lo mismo con las matrices de colores, en donde se camb
 	Fotos jugando con las matrices de colores.
 ![Lectura1](./figs/Matriz_de_colores_1.jpeg)
 ![Lectura1](./figs/Matriz_de_colores_2.jpeg)
+
