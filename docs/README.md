@@ -261,8 +261,49 @@ Figura 27. Diagrama estructural de la captura de datos.
 
 ---
 
+Para mostrar los datos recolectados en la pantalla VGA se usa el módulo ***VGA_driver.v***, el cual cuenta con las siguientes entradas y salidas:
+
+#### Entradas:
+* *rst:* Reset.
+* *clk:* Reloj de *25 MHz* para lectura de los datos de la memoria RAM.
+* *pixelIn [7:0]:* Píxel de entrada proveniente de la RAM.
+
+#### Salida:
+* *pixelOut [7:0]:* Píxel de salida, depende de la posición en la pantalla.
+* *Hsync_n:* Señal de sincronización horizontal negada, similar a la señal *HREF* de la cámara.
+* *Vsync_n:* Señal de sincronización vertical negada, similar a la señal *VSYNC* de la cámara.
+* *posX [9:0]:* Posición horizontal del pixel siguiente.
+* *posY [9:0]:* Posición vertical del pixel siguiente.
+
+Se calcular el tamaño de la pantalla horizontal y verticalmente teniendo en cuenta la zona muerta que se encuentra en la parte derecha e inferior de las pantallas.
+
+![VGA1](./figs/VGA1.jpeg)
+
+Figura 28. Declaración del módulo. Entradas, salidas y parámetros.
+
+Se crean dos contadores uno para contar los pixeles horizontalmente *countX* y otro para contarlos verticalmente *countY*, esto con el fin de saber la dirección en que está mostrando el píxel. Además, se asigna como posición de inicio, es decir, en el primer ciclo de reloj, los valores de 640 y 480 para *posX* y *posY* respectivamente, esto se hace con el fin de que la simulación de la captura de datos se más rápida. 
+
+![VGA2](./figs/VGA2.jpeg)
+
+Figura 29. Creación de los contadores de posición en *X* y *Y*.
+
+Luego se asigna el valor al dato de salida, si *countX* es menor a 640 se toma el dato de *pixelIN*, de lo contrario asigna ceros, que representa el color negro. También se crean la señales *Hsync_n* y *Vsync_n* las cuales tomaran valores dependiendo de los contadores *countX* y *countY*.
+
+![VGA3](./figs/VGA3.jpeg)
+
+Figura 30. Píxel de salida y señales *Hsync_n* y *Vsync_n*.
+
+Para realizar el conteo de la posición en *X* y *Y* se sincroniza con las flancos de subida del reloj, si los valores de los contadores son mayores o igual al tamaño total de la pantalla menos un pixel, los contadores se reinician en cero, es decir, quedan ubicados en la esquina superior izquierda, si son menores, su valor va aumentado en 1. Se debe tener en cuenta que mientras el contador en *X* vaya aumentado el contador en *Y* se mantiene igual.
+
+![VGA4](./figs/VGA4.jpeg)
+
+Figura 31. Actualización de los contadores en *X* y *Y*.
+
 ![d_funcional_VGA](./figs/Diagrama_funcional_VGA.png)
-Figura 28. Diagrama funcional del controlador de la pantalla VGA
+
+A continuación se muestra el diagrama funcional del controlador de la pantalla VGA.
+
+Figura 32. Diagrama funcional del controlador de la pantalla VGA
 
 ### Divisor de frecuencias - Reloj (***clk24_25_nexys4.v***)
 
