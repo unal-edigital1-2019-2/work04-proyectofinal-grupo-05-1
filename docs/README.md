@@ -527,7 +527,7 @@ Antes de que se trabajara con una máquina de estados que nos permitiera captura
      Imagen de las líneas horizontales y de la estática
 ![Lectura1](./figs/Barra_de_colores_horizontal.jpeg)
 ![Lectura1](./figs/estatica.jpeg)
-![Lectura1](./figs/estatica.mp4)
+	Video estática: Para la visualización del video por favor remitirse a http://bit.ly/2OIWzxS
      
 Luego se decidió un acercamiento diferente, recomendado por el profesor, el desarrollo de una máquina de estados para la captura de datos. Así que no solo se empezó el desarrollo de la cámara sino de diferentes pruebas para encontrar los puntos problemáticos del código. Se probaron los colores por separado y se hizo una simulación de captura de datos, para probar si la conformación del píxel era correcta. La prueba de los colores individuales consistía en solo conectar los pines correspondientes al dowsampling del color deseado en HIGH y los demás en LOW, es decir, para el color rojo se toman únicamente los 3 datos más significativos del primer bus de datos. Esta prueba nos dio lo siguientes resultados:
 
@@ -538,7 +538,7 @@ Luego se decidió un acercamiento diferente, recomendado por el profesor, el des
 La simulación de la captura de datos, explicada anteriormente, arrojo la siguiente imagen
 	
 	Imagen prueba simulación de captura de datos
-	![Lectura1](./figs/.jpeg)
+	![Lectura1](./figs/.jpeg)	
 
 Para este punto sabíamos que la conformación del píxel era correcta, así que se procedió con demás pruebas. Las siguientes pruebas fueron los contadores de líneas (HREF) y de píxeles existentes, tanto por línea como en general y la simulación de captura de datos, pero esta vez con columnas de varios colores. La simulación nos arrojó las siguientes barras
 
@@ -558,7 +558,7 @@ Habiendo pasado estas pruebas exitosamente, se procedió a intentar tomar una fo
 
 Luego se hizo la grabación del video
 
-	Video
+	Video: Remitirse a http://bit.ly/2OIWzxS
 
 Después, y por motivos educativos y de recreación, nos pusimos a probar diferentes configuraciones de la cámara, como por ejemplo la cantidad de luz y el contraste. En las siguientes imágenes se ve el efecto de poner dichos comandos en sus valores límites y luego en un valor intermedio.
 
