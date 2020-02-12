@@ -652,5 +652,5 @@ Figura 51. Resultado final de la simulación.
 
 * Se observó que para la configuración RGB565 la cámara envía dos bytes para conformar un píxel, y que dependiendo de otros parámetros configuración puede mostrar tanto datos correctos como incorrectos, o cambiar los ajustes (brillo, contraste) de lo que captan sus sensores. 
 
-*Se aprendió la diferencia, ventajas y desventajas de la comunicación serial y paralela. Asi mismo, se aprendió a trabajar con buses de datos dentro de sistemas sincronos, sobre el almacenamiento de información y funcionamiento de la memoria de datos. 
+* Se aprendió la diferencia, ventajas y desventajas de la comunicación serial y paralela. Asi mismo, se aprendió a trabajar con buses de datos dentro de sistemas sincronos, sobre el almacenamiento de información y funcionamiento de la memoria de datos. 
 
