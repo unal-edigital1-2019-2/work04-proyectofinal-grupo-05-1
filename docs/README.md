@@ -465,6 +465,8 @@ Bit[0] | Formato de salida – Raw RGB | 0: RGB
 
  * ***COM17***: Dirección en hexadecimal *0x42*.
  **Configuración (**hex**):** 0x80.    **Configuración (**binario**):** 00001000.
+ 
+ 
  Bits | Descripción | Configuración
 ------------ | ------------- | -------------
 Bit[7:6] | Tamaño de ventana escalado manual | 00: Normal escalado manual desactivado
