@@ -14,11 +14,9 @@ Diseñar el sistema de una cámara digital que permita por medio de botones la v
 
 * Analizar que se debe tener en cuenta para crear una memoria RAM que no desborde lo memoria de la FPGA.
 * Realizar la captura de los datos enviados por la cámara OV7670.
+* Diseñar y programar una máquina de estados finitos.
 * Realizar la conversión entre los diferentes formatos de pixeles soportados por la FPGA y la pantalla VGA.
 * Examinar los diferentes registros y configuraciones que puede tomar la cámara.
-*
-* Diseñar y programar una máquina de estados finitos.
-* Reconocer las características y capacidades de los elementos y diseñar con base en ellas.
 * Aprender sobre sistemas síncronos, transmisión serial y paralela de información, almacenamiento y lectura de datos.
 
 
@@ -647,9 +645,12 @@ Figura 51. Resultado final de la simulación.
 
 * Se encontró que los parámetros a tener en cuenta para crear una memoria RAM son el formato de los píxeles y el tamaño de la imagen que se desea guardar. En el caso de la tarjeta *Nexys 4DDR* no es posible almacenar los datos de una imagen de 640x480 en formato RGB565 y aun así si se disminuye a RGB332 ocuparía demasiado espacio, por esa razón se prefirió trabajar con una imagen de 320x240 en RGB332. 
 
-* Se aprendió a recolectar datos de señales externas a la FPGA, como lo son las de la cámara (*PCLK*, *HREF*, *VSYNC* y *D [7:0]*) y a emplear máquinas de estado finitos, para asegurarse que está realizando la acción correcta en el momento correcto dependiendo del comportamiento de dichas señales. 
+* Se aprendió a recolectar datos de señales externas a la FPGA, con base en las de la cámara (*PCLK*, *HREF*, *VSYNC* y *D [7:0]*) utilizando sistemas síncronos y máquinas de estaos finitos.
+* Se aprendió a diseñar y a programar máquinas de estado finitos, para asegurar que se está realizando la acción correcta en el momento correcto dependiendo del comportamiento de las señales de control. 
 
 * Se comprendieron los procesos de downsmpling y upsampling usados en los procesos de convertir el formato del píxel de RGB565 a RGB332 y de RGB332 a RGB444 respectivamente. En el primero se truncaron las cifras menos significativas permitiendo pasar de 5 o 6 bits a 2 o 3 bits. En el segundo se adicionaron ceros en las cifras menos significativas con el fin de pasar de 2 o 3 bits a 4 bits, logrando así, perder la menor cantidad de información. Como se puede percibir siempre se mantuvieron las cifras más significativas de cada color.
 
 * Se observó que para la configuración RGB565 la cámara envía dos bytes para conformar un píxel, y que dependiendo de otros parámetros configuración puede mostrar tanto datos correctos como incorrectos, o cambiar los ajustes (brillo, contraste) de lo que captan sus sensores. 
+
+*Se aprendió la diferencia, ventajas y desventajas de la comunicación serial y paralela. Asi mismo, se aprendió a trabajar con buses de datos dentro de sistemas sincronos, sobre el almacenamiento de información y funcionamiento de la memoria de datos. 
 
