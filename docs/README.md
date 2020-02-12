@@ -371,9 +371,10 @@ Primero definimos la dirección del bus de comunicación I2C de la cámara y con
 Después se empieza con la configuración de los registros, en primer lugar configuramos los parámetros que dan el funcionamiento a la cámara, el COM07 con la entrada 0x80 para reiniciar los registros a sus valores por defecto, le dejamos un  delay de tiempo y seguimos configurando los demás registros primero configuramos el registro COM07 y el COM15 con el valor 0x24  y 0xD0 respectivamente habilitando la salida de pixeles en formato CIF y RGB565, en segundo lugar el registro CLKR que habilita el uso de un reloj externo en la cámara, después el COM03 y el COM14 que habilitan el escalado y hacen que este se haga de forma automática (según el valor dado en COM07[5]) además el COM14 hace que PCLK no se divida a sí mismo, los registros COM17 y COM07 comentados abajo con las entradas 0x08 y 0x0E respectivamente habilitan el test de la barra de colores de la cámara.
 ![ard3](./figs/ard3.png)
 
-#### Registros
+#### Registros Configuración
 * ***COM7***: Dirección en hexadecimal *0x12*.
-    1) Reestablecer los registros.
+         
+      1) Reestablecer los registros.
 **Configuración (**hex**):** 0x80.    **Configuración (**binario**):** 10000000.
 
 Bits | Descripción | Configuración
@@ -387,16 +388,16 @@ Bit[2] | Formato de salida – Selección RGB | 0: YUV
 Bit[1] | Habilitar barra de color | 0: Inhabilitar
 Bit[0] | Formato de salida – Raw RGB | 0: YUV
 
-    2) Formato de salida.
-**Configuración (**hex**):** 0x0C + 0x02.    **Configuración (**binario**):** 00001100 + 00000010.
+     2) Formato de salida.
+**Configuración (**hex**):** 0x0C + 0x24.    **Configuración (**binario**):** 00001100 + 00100100.
 
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
 Bit[7] | SCCB Reestablecer registro | 0: No cambiar
 Bit[6] | Reservado | 0
-Bit[5] | Formato de salida – Selección CIF | 0
+Bit[5] | Formato de salida – Selección CIF | 1
 Bit[4] | Formato de salida – Selección QVGA | 0
-Bit[3] | Formato de salida – Selección QCIF | 1
+Bit[3] | Formato de salida – Selección QCIF | 0
 Bit[2] | Formato de salida – Selección RGB | 1: RGB
 Bit[1] | Habilitar barra de color | 0: Inhabilitar
 Bit[0] | Formato de salida – Raw RGB | 0: RGB
@@ -426,15 +427,50 @@ Bit[2] | DCW habilitado | 0: Desabilitada
 Bit[1:0] | Reservado | 00
 
 * ***COM14***: Dirección en hexadecimal *0x3E*.
-    * Habilitar escalado manual.
-**Configuración (**hex**):** 0x08.    **Configuración (**binario**):** 00001000.
+    * Inhabilitar escalado manual.
+**Configuración (**hex**):** 0x00.    **Configuración (**binario**):** 00000000.
 
 Bits | Descripción | Configuración
 ------------ | ------------- | -------------
 Bit[7:5] | Reservado | 000
 Bit[4] | DCW y escalado de PCLK habilitado| 0: PCLK normal
-Bit[3] | Habilitación de escala manual para modos de resolución predefinidos como CIF, QCIF y QVGA | 1: El parámetro de escalado puede ser habilitado manualmente
+Bit[3] | Habilitación de escala manual para modos de resolución predefinidos como CIF, QCIF y QVGA | 0: El parámetro de escalado no puede hacerse manualmente
 Bit[2:0] | Divisor PCLK | 000: Dividir por 1
+
+* ***CLKR***: Dirección en hexadecimal *0x3E*.
+    * Habilita el uso de un reloj externo.
+**Configuración (**hex**):** 0xC0.    **Configuración (**binario**):** 11000000.
+
+Bits | Descripción | Configuración
+------------ | ------------- | -------------
+Bit[7] | Reservado | 1
+Bit[6] | Habilitación uso de reloj externo| 0: Se habilita el reloj externo
+Bit[5:0] | Pre-escalado del reloj interno | 000000: No se preescala porque no se usa
+
+
+ #### Registros test barra de colores
+ * ***COM7***: Dirección en hexadecimal *0x12*.
+ **Configuración (**hex**):** 0x26.    **Configuración (**binario**):** 00100110.
+
+Bits | Descripción | Configuración
+------------ | ------------- | -------------
+Bit[7] | SCCB Reestablecer registro | 0: 
+Bit[6] | Reservado | 0
+Bit[5] | Formato de salida – Selección CIF | 1
+Bit[4] | Formato de salida – Selección QVGA | 0
+Bit[3] | Formato de salida – Selección QCIF | 0
+Bit[2] | Formato de salida – Selección RGB | 1: RGB
+Bit[1] | Habilitar barra de color | 1: Habilitar
+Bit[0] | Formato de salida – Raw RGB | 0: RGB
+
+ * ***COM17***: Dirección en hexadecimal *0x42*.
+ **Configuración (**hex**):** 0x80.    **Configuración (**binario**):** 00001000.
+ Bits | Descripción | Configuración
+------------ | ------------- | -------------
+Bit[7:6] | Tamaño de ventana escalado manual | 00: Normal escalado manual desactivado
+Bit[5:4] | Reservado | 00
+Bit[3] | Habilitar barra de color | 1: Habilitar
+Bit[2:0] | Reservado | 000:
  
  Luego se configuran los registros COM13 y TSLB que habilitan  el ajuste automático del nivel de saturación ultravioleta de la imagen y  la corrección de la imagen por el parámetro gamma que ajusta la luminancia (densidad superficial de intensidad luminosa en una dirección dada), los registros HSTART, HSTOP, HREF, VREF, VSTART y VSTOP configuran el control de referencias horizontales (HREF) y verticales (VREF) de la imagen tomada, restringen el inicio y el final de estas además de controlar si estas están en HIGH o LOW; el COM12: hace que siempre exista HREF aunque VSYNC este en LOW, COM06 inhabilita el reinicio de tiempos cuando el formato cambia, REG74 está por defecto e inhabilita la ganancia digital, ABLC1 y THL_ST habilitan y configuran la calibración automática del nivel de negro (ABLC) en la imagen; MVFP,CHLF y RSVD no se sabe que se hacen ya que se cambian valores reservados. 
 
