@@ -350,7 +350,7 @@ Después de esto se busca el archivo en la carpeta /hdl/ipcore_dir y se reemplaz
 
 ---
 
-Se crea un archivo **.ucf** que es el encargado de mapear o conector las entradas y las salidas del sistema con la tarjeta programable *Nexys 4DDR*. Se le asigna a clk el reloj de *100 MHz* de la FPGA, los registros *rst*, *boton_CAM* y *boton_video* se unen a tres pulsadores y además se declara que la señales *CAM_vsync*, *CAM_href* y *CAM_pclk*no son relojes, sino datos que ingresan al sistema.
+Se crea un archivo **.ucf** que es el encargado de mapear o conector las entradas y las salidas del sistema con la tarjeta programable *Nexys 4DDR*. Se le asigna a clk el reloj de *100 MHz* de la FPGA, los registros *rst*, *boton_CAM* y *boton_video* se unen a tres pulsadores y además se declara que la señales *CAM_vsync*, *CAM_href* y *CAM_pclk* no son relojes, sino datos que ingresan al sistema.
 
 ![ucf_clk](./figs/ucf_clk.jpeg)
 
@@ -362,7 +362,7 @@ Los datos de salida en formato RGB444 se conectan a los pines del conector VGA d
 
 Figura 34. UCF conector VGA.
 
-Las señales *CAM_pclk*, * CAM_href*, *CAM_vsync*, *CAM_reset*, *CAM_pwdn* y *CAM_xclk* (recibe el reloj de *24 Hz*) se unen a los pines JD y *CAM_px_data* a los pines JC de la tarjeta.
+Las señales *CAM_pclk*, *CAM_href*, *CAM_vsync*, *CAM_reset*, *CAM_pwdn* y *CAM_xclk* (recibe el reloj de *24 Hz*) se unen a los pines JD y *CAM_px_data* a los pines JC de la tarjeta.
 
 ![ucf_pines](./figs/ucf_pines.jpeg)
 
